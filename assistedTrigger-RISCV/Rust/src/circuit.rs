@@ -1,50 +1,50 @@
-use plonky2::field::extension::Extendable;
-use plonky2::field::types::Field;
-use plonky2::field::types::RichField;
-use plonky2::gadgets::arithmetic::CircuitBuilder;
-use plonky2::gadgets::comparison::ComparisonGadget;
-use plonky2::gadgets::boolean::Boolean;
-use plonky2::plonk::config::GenericConfig;
+use plonky2::{
+    field::{goldilocks_field::GoldilocksField, types::Field},
+    iop::{witness::PartialWitness},
+    plonk::{
+        circuit_builder::CircuitBuilder,
+        circuit_data::{CircuitConfig, CircuitData},
+        config::PoseidonGoldilocksConfig,
+        proof::ProofWithPublicInputs,
+    },
+};
 
-pub fn prove_instruction_constraint<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, const D: usize>(
-    builder: &mut CircuitBuilder<F, D>,
-    instr_name: &str,
-    rs1: u64,
-    rs2: u64,
-    rd: u64,
+use crate::trace_parser::InstructionRow;
+
+pub fn build_instruction_circuit(rows: &[InstructionRow]) -> (
+    ProofWithPublicInputs<GoldilocksField, PoseidonGoldilocksConfig, 2>,
+    CircuitData<GoldilocksField, PoseidonGoldilocksConfig, 2>,
 ) {
-    let rs1_val = builder.constant(F::from_canonical_u64(rs1));
-    let rs2_val = builder.constant(F::from_canonical_u64(rs2));
-    let rd_val = builder.constant(F::from_canonical_u64(rd));
+    const D: usize = 2;
+    let config = CircuitConfig::standard_recursion_config();
+    let mut builder = CircuitBuilder::<GoldilocksField, D>::new(config);
 
-    match instr_name {
-        "add" => {
-            let sum = builder.add(rs1_val, rs2_val);
-            let eq = builder.is_equal(sum, rd_val);
-            builder.assert_bool(eq);
-        }
-        "mul" => {
-            let prod = builder.mul(rs1_val, rs2_val);
-            let eq = builder.is_equal(prod, rd_val);
-            builder.assert_bool(eq);
-        }
-        "sub" => {
-            let diff = builder.sub(rs1_val, rs2_val);
-            let eq = builder.is_equal(diff, rd_val);
-            builder.assert_bool(eq);
-        }
-        "sltu" => {
-            let lt = builder.lt(rs1_val, rs2_val); // returns Boolean<F>
-            let one = builder.constant(F::ONE);
-            let zero = builder.zero();
-            let is_one = builder.is_equal(rd_val, one);
-            let is_zero = builder.is_equal(rd_val, zero);
-            let or_result = builder.or(is_one, is_zero);
-            builder.assert_bool(or_result);
+    let mut public_inputs = Vec::new();
 
-            let lt_as_target = lt.target;
-            builder.connect(rd_val, lt_as_target);
-        }
-        _ => panic!("Unsupported instruction: {}", instr_name),
+    for row in rows {
+        let opcode = builder.constant(row.opcode);
+        let rs1 = builder.constant(row.rs1_val);
+        let rs2 = builder.constant(row.rs2_val);
+        let rd = builder.constant(row.rd_val);
+
+        // Example constraint: rd = rs1 + rs2 for opcode 1
+        let computed = builder.add(rs1, rs2);
+        let const_opcode = builder.constant(GoldilocksField::from_canonical_u64(1));
+        let is_add = builder.is_equal(opcode, const_opcode);
+        let diff = builder.sub(rd, computed);
+        let is_add_tgt = is_add.target;
+        let zero = builder.mul(diff, is_add_tgt);
+
+        builder.assert_zero(zero);
+
+        public_inputs.extend_from_slice(&[opcode, rs1, rs2, rd]);
     }
+
+    builder.register_public_inputs(&public_inputs);
+    let data = builder.build::<PoseidonGoldilocksConfig>();
+
+    let pw = PartialWitness::new();
+    let proof = data.prove(pw).unwrap();
+
+    (proof, data)
 }

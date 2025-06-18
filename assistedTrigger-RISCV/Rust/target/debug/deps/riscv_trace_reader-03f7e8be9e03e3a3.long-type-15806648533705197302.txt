@@ -1,1 +1,0 @@
-CircuitData<GoldilocksField, PoseidonGoldilocksConfig, 2>
