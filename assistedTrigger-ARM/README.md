@@ -1,3 +1,8 @@
+Executing on GDB based on ARM processor:
+
+In the assistedTrigger method, QEMU executes the user’s program and stores the resulting execution trace. The proof generation module then reads this trace to produce a zero-knowledge proof (ZKP), which is subsequently verified by the verifier program.
+
+
 # Zero-Knowledge Proof Workflow
 This guide explains how to generate a commitment, create a zero-knowledge proof (ZKP), and verify it using C++ and accompanying utilities.
 
