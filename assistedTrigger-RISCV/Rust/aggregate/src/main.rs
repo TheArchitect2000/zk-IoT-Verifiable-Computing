@@ -1,19 +1,27 @@
-use riscv_trace_reader::{
-    convert_trace_to_rows, parse_trace, prove_aggregated_instructions, verify_instruction_proof,
-};
+use riscv_trace_reader::{run_qemu, parse_trace, convert_trace_to_rows};
+use riscv_trace_reader::prove_multi_instruction_constraint;
+use riscv_trace_reader::{save_proof_and_circuit, load_proof_and_circuit};
 
 fn main() {
-    let trace_path = "./traces/sample_trace.log";
-    let parsed = parse_trace(trace_path);
+    // let bin = "./test.bin";
+    let trace = "./traces/trace.log";
+
+    // run_qemu(bin, trace);
+    let parsed = parse_trace(trace);
     let rows = convert_trace_to_rows(&parsed);
 
-    let (proof, circuit) = prove_aggregated_instructions(&rows);
+    let (proof, circuit) = prove_multi_instruction_constraint(&rows);
+    println!("Generated proof for {} instructions", rows.len());
+    println!("Public inputs: {:?}", proof.public_inputs);
 
-    println!("🔒 Aggregated proof public inputs: {:?}", proof.public_inputs);
+    let (proof, data) = prove_multi_instruction_constraint(&rows);
 
-    if verify_instruction_proof(&proof, &circuit) {
-        println!("✅ Aggregated proof verified successfully!");
-    } else {
-        println!("❌ Aggregated proof verification failed!");
+    save_proof_and_circuit(&proof, &data, "./proof.bin", "./circuit.bin");
+    println!("Proof and circuit saved to files.");
+
+    let (proof, data) = load_proof_and_circuit("./proof.bin", "./circuit.bin");
+    match data.verify(proof) {
+        Ok(_) => println!("✅ Proof verified!"),
+        Err(e) => println!("❌ Verification failed: {:?}", e),
     }
 }

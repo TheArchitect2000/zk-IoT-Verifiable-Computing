@@ -1,104 +1,137 @@
-use plonky2::field::goldilocks_field::GoldilocksField;
-use plonky2::field::types::Field;
+use std::process::{Command};
 use std::fs::File;
 use std::io::{BufRead, BufReader};
+use std::{thread, time::Duration};
+use regex::Regex;
 
-
-#[derive(Debug, Clone)]
-pub struct InstructionRow {
-    pub opcode: GoldilocksField,
-    pub rs1_val: GoldilocksField,
-    pub rs2_val: GoldilocksField,
-    pub rd_val: GoldilocksField,
+#[derive(Debug, Clone, PartialEq)]
+pub struct TraceEntry {
+    pub pc: u64,
+    pub opcode: String,
+    pub rd: Option<String>,
+    pub rs1: Option<String>,
+    pub rs2: Option<String>,
+    pub imm: Option<i64>, // signed immediate values
 }
 
-// Stub implementations
-pub fn run_qemu(_bin: &str, _trace_path: &str) {}
+pub fn run_qemu(binary_path: &str, trace_path: &str) {
+    // Start QEMU with GDB server
+    let mut qemu = Command::new("qemu-riscv64")
+        .args([
+            "-d",
+            "in_asm,cpu",
+            "-D", binary_path,
+            // "-S", // freeze CPU at startup
+            "-gdb", "tcp::1234" // start gdb server on port 1234
+        ])
+        .spawn()
+        .expect("Failed to start QEMU");
 
-pub fn parse_trace(_trace_path: &str) -> Vec<String> {
-    vec![] // stub
-}
-fn parse_opcode(opcode_str: &str) -> GoldilocksField {
-    // Real RISC-V opcodes (base integer instructions)
-    match opcode_str {
-        "LUI"   => GoldilocksField::from_canonical_u64(0b0110111),
-        "AUIPC" => GoldilocksField::from_canonical_u64(0b0010111),
-        "JAL"   => GoldilocksField::from_canonical_u64(0b1101111),
-        "JALR"  => GoldilocksField::from_canonical_u64(0b1100111),
-        "BEQ"   => GoldilocksField::from_canonical_u64(0b1100011),
-        "BNE"   => GoldilocksField::from_canonical_u64(0b1100011),
-        "BLT"   => GoldilocksField::from_canonical_u64(0b1100011),
-        "BGE"   => GoldilocksField::from_canonical_u64(0b1100011),
-        "BLTU"  => GoldilocksField::from_canonical_u64(0b1100011),
-        "BGEU"  => GoldilocksField::from_canonical_u64(0b1100011),
-        "LB"    => GoldilocksField::from_canonical_u64(0b0000011),
-        "LH"    => GoldilocksField::from_canonical_u64(0b0000011),
-        "LW"    => GoldilocksField::from_canonical_u64(0b0000011),
-        "LBU"   => GoldilocksField::from_canonical_u64(0b0000011),
-        "LHU"   => GoldilocksField::from_canonical_u64(0b0000011),
-        "SB"    => GoldilocksField::from_canonical_u64(0b0100011),
-        "SH"    => GoldilocksField::from_canonical_u64(0b0100011),
-        "SW"    => GoldilocksField::from_canonical_u64(0b0100011),
-        "ADDI"  => GoldilocksField::from_canonical_u64(0b0010011),
-        "SLTI"  => GoldilocksField::from_canonical_u64(0b0010011),
-        "SLTIU" => GoldilocksField::from_canonical_u64(0b0010011),
-        "XORI"  => GoldilocksField::from_canonical_u64(0b0010011),
-        "ORI"   => GoldilocksField::from_canonical_u64(0b0010011),
-        "ANDI"  => GoldilocksField::from_canonical_u64(0b0010011),
-        "SLLI"  => GoldilocksField::from_canonical_u64(0b0010011),
-        "SRLI"  => GoldilocksField::from_canonical_u64(0b0010011),
-        "SRAI"  => GoldilocksField::from_canonical_u64(0b0010011),
-        "ADD"   => GoldilocksField::from_canonical_u64(0b0110011),
-        "SUB"   => GoldilocksField::from_canonical_u64(0b0110011),
-        "SLL"   => GoldilocksField::from_canonical_u64(0b0110011),
-        "SLT"   => GoldilocksField::from_canonical_u64(0b0110011),
-        "SLTU"  => GoldilocksField::from_canonical_u64(0b0110011),
-        "XOR"   => GoldilocksField::from_canonical_u64(0b0110011),
-        "SRL"   => GoldilocksField::from_canonical_u64(0b0110011),
-        "SRA"   => GoldilocksField::from_canonical_u64(0b0110011),
-        "OR"    => GoldilocksField::from_canonical_u64(0b0110011),
-        "AND"   => GoldilocksField::from_canonical_u64(0b0110011),
-        _ => GoldilocksField::from_canonical_u64(0),
+    println!("QEMU launched. Waiting for GDB...");
+
+    // Give QEMU time to initialize
+    thread::sleep(Duration::from_secs(1));
+
+    // Create a temporary GDB script
+    let gdb_script = r#"
+set pagination off
+target remote :1234
+layout asm
+layout regs
+
+# Optional: set $pc to start address manually
+# set $pc = 0x00000000
+
+define dump_state
+    set $addr = $pc
+    x/i $pc
+    info registers
+end
+
+define step_and_log
+    dump_state
+    si
+end
+
+# run 20 steps
+define run_trace
+    set logging file trace.log
+    set logging on
+    set $i = 0
+    while $i < 20
+        step_and_log
+        set $i = $i + 1
+    end
+    set logging off
+end
+
+run_trace
+quit
+"#;
+
+    let script_path = "/tmp/gdb_trace_script.gdb";
+    std::fs::write(script_path, gdb_script).expect("Failed to write gdb script");
+
+    // Run GDB and execute the script
+    let status = Command::new("gdb-multiarch")
+        .args([binary_path, "-x", script_path])
+        .status()
+        .expect("Failed to run GDB");
+
+    if status.success() {
+        // Move log to desired path
+        std::fs::rename("trace.log", trace_path).expect("Failed to move trace log");
+        println!("Trace written to {}", trace_path);
+    } else {
+        println!("GDB failed.");
     }
+
+    // Kill QEMU when done
+    let _ = qemu.kill();
 }
 
-// Reads and parses the sample trace file
-pub fn parse_trace(_trace_path: &str) -> Vec<String> {
-    let file = File::open("./traces/sample_trace.log").expect("Failed to open trace file");
+pub fn parse_trace(trace_path: &str) -> Vec<TraceEntry> {
+    let file = File::open(trace_path).expect("Cannot open trace log");
     let reader = BufReader::new(file);
-    reader.lines().filter_map(Result::ok).collect()
-}
+    let re_instr = Regex::new(
+        r"^\s*(0x?[0-9a-f]+):\s+([a-z0-9]+)\s+([x][0-9]+)(?:,\s*([x][0-9]+))?(?:,\s*(-?\d+|[x][0-9]+))?"
+    ).unwrap();
 
-pub fn convert_trace_to_rows(parsed: &[String]) -> Vec<InstructionRow> {
-    let mut rows = Vec::new();
-    for line in parsed {
-        // Example trace line format: "ADD x1 x2 x3 5 10 15"
-        // opcode rd rs1 rs2 rs1_val rs2_val rd_val
-        let tokens: Vec<&str> = line.split_whitespace().collect();
-        if tokens.len() < 7 {
-            continue;
-        }
-        let opcode = parse_opcode(tokens[0]);
-        let rs1_val = tokens[4].parse::<u64>().unwrap_or(0);
-        let rs2_val = tokens[5].parse::<u64>().unwrap_or(0);
-        let rd_val = tokens[6].parse::<u64>().unwrap_or(0);
+    reader
+        .lines()
+        .filter_map(|line| {
+            let line = line.ok()?;
+            let caps = re_instr.captures(&line)?;
 
-        rows.push(InstructionRow {
-            opcode,
-            rs1_val: GoldilocksField::from_canonical_u64(rs1_val),
-            rs2_val: GoldilocksField::from_canonical_u64(rs2_val),
-            rd_val: GoldilocksField::from_canonical_u64(rd_val),
-        });
-    }
-    rows
-}
-pub fn convert_trace_to_rows(_parsed: &[String]) -> Vec<InstructionRow> {
-    vec![
-        InstructionRow {
-            opcode: GoldilocksField::from_canonical_u64(1),
-            rs1_val: GoldilocksField::from_canonical_u64(5),
-            rs2_val: GoldilocksField::from_canonical_u64(10),
-            rd_val: GoldilocksField::from_canonical_u64(15),
-        },
-    ]
+            let pc_str = &caps[1];
+            let pc = u64::from_str_radix(pc_str.trim_start_matches("0x"), 16).ok()?;
+
+            let opcode = caps[2].to_string();
+            let rd = Some(caps[3].to_string());
+            let rs1 = caps.get(4).map(|m| m.as_str().to_string());
+
+            // For the third operand, check if it is immediate (number) or register (xN)
+            let imm_or_rs2 = caps.get(5).map(|m| m.as_str().to_string());
+
+            // Determine if imm_or_rs2 is immediate or register
+            let (rs2, imm) = match imm_or_rs2 {
+                Some(s) if s.starts_with('x') => (Some(s), None), // register
+                Some(s) => {
+                    // parse immediate as i64, could be negative
+                    let imm_val = s.parse::<i64>().ok();
+                    (None, imm_val)
+                }
+                None => (None, None),
+            };
+
+            Some(TraceEntry {
+                pc,
+                opcode,
+                rd,
+                rs1,
+                rs2,
+                imm,
+            })
+        })
+        .collect()
 }
