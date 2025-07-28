@@ -12,6 +12,7 @@ use log::Level;
 use plonky2::plonk::proof::ProofWithPublicInputs;
 use crate::zk::InstructionRow;
 
+
 pub fn prove_instruction_constraint(
     opcode_id: u64,
     rs1: u64,
@@ -121,7 +122,14 @@ pub fn prove_multi_instruction_constraint(
         let addi_res = builder.add(*rs1, *rs2);
 
         let is_div = builder.is_equal(*opcode, c5);
-        let div_res = builder.div(*rs1, *rs2);
+        // let div_res = builder.div(*rs1, *rs2);
+        // Handle division by zero safely
+        let zero = builder.zero();
+        let one = builder.one();
+        let is_rs2_zero = builder.is_equal(*rs2, zero);
+        let safe_rs2 = builder.select(is_rs2_zero, one, *rs2); // avoid panic
+        let raw_div = builder.div(*rs1, safe_rs2);
+        let div_res = builder.select(is_rs2_zero, zero, raw_div); // output 0 if rs2 == 0
 
         let is_and = builder.is_equal(*opcode, c7);
         let and_res = builder.mul(*rs1, *rs2); // Field logic approximation

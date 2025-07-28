@@ -1,5 +1,4 @@
 // test.cpp
-// To compile for RISC-V use, use `riscv64-unknown-elf-g++`:
 // riscv64-unknown-elf-gcc -o test.bin test.cpp -O2 -static
 
 extern "C" int main() {
@@ -13,14 +12,11 @@ extern "C" int main() {
     volatile int h = g | a;    // or
     volatile int i = h ^ f;    // xor
 
-    int* ptr = (int*)0x2000;
-    *ptr = i;                  // sw
-    int j = *ptr;              // lw
-
-    if (j == i) {              // beq
-        a = 0;
-    } else {
-        a = 1;
-    }
     return 0;
+}
+
+extern "C" void _start() {
+    int r = main();
+    __asm__ volatile("li a7, 93; ecall"); // exit syscall
+    (void)r;
 }

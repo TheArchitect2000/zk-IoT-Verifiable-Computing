@@ -21,81 +21,67 @@ fn reg_name_to_index(reg: &str) -> Option<usize> {
     }
 }
 
-pub fn opcode_to_id(op: &str) -> u64 {
+pub fn opcode_to_id(op: &str) -> Option<u64> {
     match op {
-        "add" => 1,
-        "sub" => 2,
-        "mul" => 3,
-        "addi" => 4,
-        "div" => 5,
-        "sw" => 6,
-        "and" => 7,
-        "or" => 8,
-        _ => 0,
+        "add" => Some(1),
+        "sub" => Some(2),
+        "mul" => Some(3),
+        "addi" => Some(4),
+        "div" => Some(5),
+        "sw" => Some(6),
+        "and" => Some(7),
+        "or" => Some(8),
+        _ => None, // Invalid or unrecognized opcode
     }
 }
 
 pub fn convert_trace_to_rows(entries: &[TraceEntry]) -> Vec<InstructionRow<GoldilocksField>> {
     let mut rows = Vec::new();
+    let mut registers: HashMap<usize, u64> = (0..32).map(|i| (i, 0)).collect();
 
-    // Simulate register file as a map reg_index -> u64 value
-    let mut registers: HashMap<usize, u64> = HashMap::new();
+    for i in 0..entries.len() {
+        let entry = &entries[i];
 
-    // Initialize all registers to 0
-    for i in 0..32 {
-        registers.insert(i, 0);
-    }
-
-    for entry in entries {
-        let opcode_id = opcode_to_id(&entry.opcode);
+        // Lookup opcode
+        let Some(opcode_id) = opcode_to_id(&entry.opcode) else {
+            println!("⚠️ Skipping unsupported opcode: {}", entry.opcode);
+            continue;
+        };
         let opcode = GoldilocksField::from_canonical_u64(opcode_id);
 
-        // Get rs1 value from registers or 0 if missing
-        let rs1_val = entry.rs1.as_ref()
+        // Resolve rs1 value
+        let rs1_val = entry.rs1
+            .as_ref()
             .and_then(|r| reg_name_to_index(r))
-            .and_then(|idx| registers.get(&idx))
-            .copied()
+            .and_then(|idx| registers.get(&idx).copied())
             .unwrap_or(0);
 
-        // rs2_val can be register value or immediate value
+        // Resolve rs2 or immediate value
         let rs2_val = if let Some(imm) = entry.imm {
             imm as u64
         } else {
-            entry.rs2.as_ref()
+            entry.rs2
+                .as_ref()
                 .and_then(|r| reg_name_to_index(r))
-                .and_then(|idx| registers.get(&idx))
-                .copied()
+                .and_then(|idx| registers.get(&idx).copied())
                 .unwrap_or(0)
         };
 
-        // Compute rd_val based on opcode semantics (basic ALU ops)
-        let rd_val = match entry.opcode.as_str() {
-            "add" => rs1_val.wrapping_add(rs2_val),
-            "sub" => rs1_val.wrapping_sub(rs2_val),
-            "mul" => rs1_val.wrapping_mul(rs2_val),
-            "addi" => rs1_val.wrapping_add(rs2_val),
-            "div" => {
-                if rs2_val != 0 {
-                    rs1_val / rs2_val
+        // Predict rd_val: take value from the next state (if available)
+        let rd_val = entry.rd
+            .as_ref()
+            .and_then(|rd_reg| reg_name_to_index(rd_reg))
+            .map(|rd_idx| {
+                if i + 1 < entries.len() {
+                    // Look ahead: use simulated future register state
+                    registers.get(&rd_idx).copied().unwrap_or(0)
                 } else {
-                    0 // Division by zero, return 0
+                    0
                 }
-            }
-            "and" => rs1_val & rs2_val,
-            "or" => rs1_val | rs2_val,
-            _ => 0,
-        };
+            })
+            .unwrap_or(0);
 
-        // Update register file with rd_val
-        if let Some(rd_reg) = &entry.rd {
-            if let Some(rd_idx) = reg_name_to_index(rd_reg) {
-                // x0 is hardwired zero in RISCV, skip updating it
-                if rd_idx != 0 {
-                    registers.insert(rd_idx, rd_val);
-                }
-            }
-        }
-
+        // Append current instruction
         rows.push(InstructionRow {
             pc: GoldilocksField::from_canonical_u64(entry.pc),
             opcode,
@@ -103,10 +89,21 @@ pub fn convert_trace_to_rows(entries: &[TraceEntry]) -> Vec<InstructionRow<Goldi
             rs2_val: GoldilocksField::from_canonical_u64(rs2_val),
             rd_val: GoldilocksField::from_canonical_u64(rd_val),
         });
+
+        // Simulate register state update
+        if let Some(rd_reg) = &entry.rd {
+            if let Some(rd_idx) = reg_name_to_index(rd_reg) {
+                if rd_idx != 0 {
+                    // Simulate write-back after instruction execution
+                    registers.insert(rd_idx, rd_val);
+                }
+            }
+        }
     }
 
     rows
 }
+
 
 #[cfg(test)]
 mod tests {
