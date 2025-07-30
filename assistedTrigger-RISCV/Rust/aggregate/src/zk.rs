@@ -1,5 +1,6 @@
 use plonky2::field::goldilocks_field::GoldilocksField;
 use plonky2::field::types::Field;
+use plonky2::field::types::Field64;
 use crate::trace_parser::TraceEntry;
 use std::collections::HashMap;
 
@@ -9,6 +10,8 @@ pub struct InstructionRow<F: Field> {
     pub opcode: F,
     pub rs1_val: F,
     pub rs2_val: F,
+    pub imm_flag: F,
+    pub imm_val: F,
     pub rd_val: F,
 }
 
@@ -38,67 +41,78 @@ pub fn opcode_to_id(op: &str) -> Option<u64> {
 pub fn convert_trace_to_rows(entries: &[TraceEntry]) -> Vec<InstructionRow<GoldilocksField>> {
     let mut rows = Vec::new();
     let mut registers: HashMap<usize, u64> = (0..32).map(|i| (i, 0)).collect();
+    for entry in entries {
+        println!("0x{:08x}: {}", entry.pc, entry.opcode);
+        
+        if let Some(rd) = &entry.rd {
+            let val = entry.reg_values.get(rd).unwrap_or(&0);
+            println!("  rd:  {} = {}", rd, val);
+        }
+
+        if let Some(rs1) = &entry.rs1 {
+            let val = entry.reg_values.get(rs1).unwrap_or(&0);
+            println!("  rs1: {} = {}", rs1, val);
+        }
+
+        if let Some(rs2) = &entry.rs2 {
+            let val = entry.reg_values.get(rs2).unwrap_or(&0);
+            println!("  rs2: {} = {}", rs2, val);
+        }
+
+        if let Some(imm) = entry.imm {
+            println!("  imm: {}", imm);
+        }
+    }
 
     for i in 0..entries.len() {
         let entry = &entries[i];
 
-        // Lookup opcode
+        // Update register values with what's read from this entry (AFTER instruction)
+        for (reg_name, val) in &entry.reg_values {
+            if let Some(idx) = reg_name_to_index(reg_name) {
+                registers.insert(idx, *val);
+            }
+        }
+
         let Some(opcode_id) = opcode_to_id(&entry.opcode) else {
             println!("⚠️ Skipping unsupported opcode: {}", entry.opcode);
             continue;
         };
+
         let opcode = GoldilocksField::from_canonical_u64(opcode_id);
 
-        // Resolve rs1 value
         let rs1_val = entry.rs1
             .as_ref()
             .and_then(|r| reg_name_to_index(r))
             .and_then(|idx| registers.get(&idx).copied())
             .unwrap_or(0);
 
-        // Resolve rs2 or immediate value
-        let rs2_val = if let Some(imm) = entry.imm {
-            imm as u64
+        let (rs2_val, imm_flag, imm_val) = if let Some(imm) = entry.imm {
+            (imm as u64, GoldilocksField::ONE, GoldilocksField::from_canonical_i64(imm))
         } else {
-            entry.rs2
+            let val = entry.rs2
                 .as_ref()
                 .and_then(|r| reg_name_to_index(r))
                 .and_then(|idx| registers.get(&idx).copied())
-                .unwrap_or(0)
+                .unwrap_or(0);
+            (val, GoldilocksField::ZERO, GoldilocksField::ZERO)
         };
 
-        // Predict rd_val: take value from the next state (if available)
         let rd_val = entry.rd
             .as_ref()
-            .and_then(|rd_reg| reg_name_to_index(rd_reg))
-            .map(|rd_idx| {
-                if i + 1 < entries.len() {
-                    // Look ahead: use simulated future register state
-                    registers.get(&rd_idx).copied().unwrap_or(0)
-                } else {
-                    0
-                }
-            })
+            .and_then(|rd| reg_name_to_index(rd))
+            .and_then(|idx| registers.get(&idx).copied())
             .unwrap_or(0);
 
-        // Append current instruction
         rows.push(InstructionRow {
             pc: GoldilocksField::from_canonical_u64(entry.pc),
             opcode,
             rs1_val: GoldilocksField::from_canonical_u64(rs1_val),
             rs2_val: GoldilocksField::from_canonical_u64(rs2_val),
+            imm_flag,
+            imm_val,
             rd_val: GoldilocksField::from_canonical_u64(rd_val),
         });
-
-        // Simulate register state update
-        if let Some(rd_reg) = &entry.rd {
-            if let Some(rd_idx) = reg_name_to_index(rd_reg) {
-                if rd_idx != 0 {
-                    // Simulate write-back after instruction execution
-                    registers.insert(rd_idx, rd_val);
-                }
-            }
-        }
     }
 
     rows

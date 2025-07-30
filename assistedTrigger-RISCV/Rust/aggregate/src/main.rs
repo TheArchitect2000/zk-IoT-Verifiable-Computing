@@ -10,16 +10,24 @@ fn main() {
     let parsed = parse_trace(trace);
     let rows = convert_trace_to_rows(&parsed);
 
-    let (proof, circuit) = prove_multi_instruction_constraint(&rows);
-    println!("Generated proof for {} instructions", rows.len());
-    println!("Public inputs: {:?}", proof.public_inputs);
+    match prove_multi_instruction_constraint(&rows) {
+        Ok((proof, circuit)) => {
+            println!("✅ Generated Proof Successfully!");
+            println!("Generated proof for {} instructions", rows.len());
+            println!("Public inputs: {:?}", proof.public_inputs);
 
-    save_proof_and_circuit(&proof, &circuit, "./proof.bin", "./circuit.bin");
-    println!("Proof and circuit saved to files.");
+            save_proof_and_circuit(&proof, &circuit, "./proof.bin", "./circuit.bin");
+            println!("Proof and circuit saved to files.");
 
-    let (proof, circuit) = load_proof_and_circuit("./proof.bin", "./circuit.bin");
-    match circuit.verify(proof) {
-        Ok(_) => println!("✅ Proof verified!"),
-        Err(e) => println!("❌ Verification failed: {:?}", e),
+            let (proof_loaded, circuit_loaded) = load_proof_and_circuit("./proof.bin", "./circuit.bin");
+            match circuit_loaded.verify(proof_loaded) {
+                Ok(_) => println!("✅ Proof verified!"),
+                Err(e) => println!("❌ Verification failed: {:?}", e),
+            }
+        }
+        Err(e) => {
+            println!("❌ Failed to Generate Proof: {:?}", e);
+            std::process::exit(1);
+        }
     }
 }
