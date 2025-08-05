@@ -3,10 +3,10 @@ use riscv_trace_reader::prove_multi_instruction_constraint;
 use riscv_trace_reader::{save_proof_and_circuit, load_proof_and_circuit};
 
 fn main() {
-    // let bin = "./test.bin";
-    let trace = "./traces/sample_trace.log";
+    let bin = "./test.bin";
+    let trace = "./traces/qemu_trace.log";
 
-    // run_program(bin, trace);
+    run_program(bin, trace);
     let parsed = parse_trace(trace);
     let rows = convert_trace_to_rows(&parsed);
 

@@ -27,34 +27,39 @@ fn spawn_qemu(bin: &str, port: u16) -> u32 {
             "-bios", "none",
             "-device", "loader", &format!("file={}", bin), "addr=0x80000000",
             "-S",
-            "-gdb", &format!("tcp::{}", port),
+            "-gdb", &format!("tcp:127.0.0.1:{}", port),
         ])
         .stdout(Stdio::null())
         .stderr(Stdio::null())
         .spawn()
         .expect("Failed to start QEMU");
-    println!("✅ QEMU GDB server is up");
+    println!("✅ QEMU process started (pid {})", qemu.id());
     qemu.id()
 }
 
 fn wait_for_qemu(port: u16) {
     let addr = format!("127.0.0.1:{}", port);
-    for _ in 0..20 {
-        if TcpStream::connect(&addr).is_ok() {
-            println!("✅ QEMU GDB server is up");
-            return;
+
+    // Initial grace delay
+    thread::sleep(Duration::from_secs(1));
+
+    for attempt in 0..40 {
+        match TcpStream::connect(&addr) {
+            Ok(_) => {
+                println!("✅ GDB server is accepting connections");
+                return;
+            }
+            Err(e) => {
+                println!("⏳ Waiting for GDB server (attempt {}): {}", attempt + 1, e);
+                thread::sleep(Duration::from_millis(250));
+            }
         }
-        thread::sleep(Duration::from_millis(250));
     }
-    panic!("❌ Timed out waiting for QEMU GDB server");
+    panic!("❌ Timed out waiting for QEMU GDB server at {}", addr);
 }
 
-fn run_gdb(bin: &str, script: &str) {
-    // Command::new("riscv64-unknown-elf-gdb")
-    //     .args(["-q", "-x", script, bin])
-    //     .status()
-    //     .expect("Failed to run GDB");
 
+fn run_gdb(bin: &str, script: &str) {
     // Run GDB and execute script
     let status = Command::new("riscv64-unknown-elf-gdb")
         .args(["-x", script, bin])
@@ -77,8 +82,6 @@ pub fn run_program(binary_path: &str, trace_path: &str) {
 
     let gdb_script_path = "./trace.gdb";
     let raw_trace_path = "./trace_raw.txt";
-    // let final_trace_path = "trace_cleaned.txt";
-
 
     run_gdb(binary_path, gdb_script_path);
 
@@ -91,39 +94,64 @@ pub fn run_program(binary_path: &str, trace_path: &str) {
 }
 
 fn get_trace(input: &str, output: &str) {
+    use std::collections::HashMap;
+
     let reader = BufReader::new(File::open(input).unwrap());
     let mut out = File::create(output).unwrap();
 
+    let mut reg_state: HashMap<String, String> = HashMap::new();
     let mut pc = String::new();
     let mut instr = String::new();
-    let mut regs = Vec::new();
+
+    let mut printed_header = false;
 
     for line in reader.lines() {
         let line = line.unwrap();
+
         if line.starts_with("pc=0x") {
             if !instr.is_empty() {
+                // Print instruction
                 writeln!(out, "{}: {}", pc, instr).unwrap();
-                writeln!(out, "{}", regs.join(" ")).unwrap();
-                writeln!(out).unwrap();
-                regs.clear();
+
+                // Print register state
+                let mut regs: Vec<_> = reg_state.iter().collect();
+                regs.sort_by_key(|(k, _)| k.clone()); // Sort registers
+                let reg_line = regs.iter()
+                    .map(|(k, v)| format!("{}={}", k, v))
+                    .collect::<Vec<_>>()
+                    .join(" ");
+                writeln!(out, "{}", reg_line).unwrap();
+
+                instr.clear();
             }
+
             if let Some((p, i)) = line.strip_prefix("pc=").and_then(|l| l.split_once(':')) {
                 pc = p.trim().to_string();
                 instr = i.trim().to_string();
             }
-        } else if line.starts_with("x") || line.starts_with("ra") || line.starts_with("sp") {
+
+        } else if line.contains('\t') {
             if let Some((reg, val)) = line.split_once('\t') {
-                regs.push(format!("{}={}", reg.trim(), val.trim().split('\t').next().unwrap_or("")));
+                let reg_name = reg.trim().to_string();
+                let reg_val = val.trim().split('\t').next().unwrap_or("").to_string();
+                reg_state.insert(reg_name, reg_val);
             }
         }
     }
 
-    // Last entry
+    // Handle last instruction
     if !instr.is_empty() {
         writeln!(out, "{}: {}", pc, instr).unwrap();
-        writeln!(out, "{}", regs.join(" ")).unwrap();
+        let mut regs: Vec<_> = reg_state.iter().collect();
+        regs.sort_by_key(|(k, _)| k.clone());
+        let reg_line = regs.iter()
+            .map(|(k, v)| format!("{}={}", k, v))
+            .collect::<Vec<_>>()
+            .join(" ");
+        writeln!(out, "{}", reg_line).unwrap();
     }
 }
+
 
 pub fn parse_trace(trace_path: &str) -> Vec<TraceEntry> {
     let file = File::open(trace_path).expect("Cannot open trace log");

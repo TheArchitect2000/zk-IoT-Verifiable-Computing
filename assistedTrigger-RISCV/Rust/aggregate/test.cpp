@@ -1,5 +1,5 @@
 // test.cpp
-// riscv64-unknown-elf-gcc -o test.bin test.cpp -O2 -static
+// riscv64-unknown-elf-gcc -O0 -static -g -o test.bin test.cpp
 
 extern "C" int main() {
     volatile int a = 3;
@@ -13,10 +13,4 @@ extern "C" int main() {
     volatile int i = h ^ f;    // xor
 
     return 0;
-}
-
-extern "C" void _start() {
-    int r = main();
-    __asm__ volatile("li a7, 93; ecall"); // exit syscall
-    (void)r;
 }

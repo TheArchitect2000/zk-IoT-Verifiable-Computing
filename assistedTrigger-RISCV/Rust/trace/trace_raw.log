@@ -1,0 +1,2105 @@
+Reading symbols from ./test.bin...
+0x000000000001014e in _start ()
+=> 0x101de <main()+2>:	sd	ra,56(sp)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x0	0x0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x0	0
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101de	0x101de <main()+2>
+0x00000000000101de	4	extern "C" int main() {
+   0x00000000000101dc <main()+0>:	7139              	addi	sp,sp,-64
+=> 0x00000000000101de <main()+2>:	fc06              	sd	ra,56(sp)
+   0x00000000000101e0 <main()+4>:	f822              	sd	s0,48(sp)
+   0x00000000000101e2 <main()+6>:	0080              	addi	s0,sp,64
+=> 0x101e0 <main()+4>:	sd	s0,48(sp)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x0	0x0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x0	0
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101e0	0x101e0 <main()+4>
+0x00000000000101e0	4	extern "C" int main() {
+   0x00000000000101dc <main()+0>:	7139              	addi	sp,sp,-64
+   0x00000000000101de <main()+2>:	fc06              	sd	ra,56(sp)
+=> 0x00000000000101e0 <main()+4>:	f822              	sd	s0,48(sp)
+   0x00000000000101e2 <main()+6>:	0080              	addi	s0,sp,64
+=> 0x101e2 <main()+6>:	addi	s0,sp,64
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x0	0x0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x0	0
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101e2	0x101e2 <main()+6>
+0x00000000000101e2	4	extern "C" int main() {
+   0x00000000000101dc <main()+0>:	7139              	addi	sp,sp,-64
+   0x00000000000101de <main()+2>:	fc06              	sd	ra,56(sp)
+   0x00000000000101e0 <main()+4>:	f822              	sd	s0,48(sp)
+=> 0x00000000000101e2 <main()+6>:	0080              	addi	s0,sp,64
+=> 0x101e4 <main()+8>:	li	a5,3
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x0	0
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101e4	0x101e4 <main()+8>
+5	    volatile int a = 3;
+=> 0x00000000000101e4 <main()+8>:	478d              	li	a5,3
+   0x00000000000101e6 <main()+10>:	fef42623        	sw	a5,-20(s0)
+=> 0x101e6 <main()+10>:	sw	a5,-20(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x0	0
+a5             0x3	3
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101e6	0x101e6 <main()+10>
+0x00000000000101e6	5	    volatile int a = 3;
+   0x00000000000101e4 <main()+8>:	478d              	li	a5,3
+=> 0x00000000000101e6 <main()+10>:	fef42623        	sw	a5,-20(s0)
+=> 0x101ea <main()+14>:	li	a5,4
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x0	0
+a5             0x3	3
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101ea	0x101ea <main()+14>
+6	    volatile int b = 4;
+=> 0x00000000000101ea <main()+14>:	4791              	li	a5,4
+   0x00000000000101ec <main()+16>:	fef42423        	sw	a5,-24(s0)
+=> 0x101ec <main()+16>:	sw	a5,-24(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x0	0
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101ec	0x101ec <main()+16>
+0x00000000000101ec	6	    volatile int b = 4;
+   0x00000000000101ea <main()+14>:	4791              	li	a5,4
+=> 0x00000000000101ec <main()+16>:	fef42423        	sw	a5,-24(s0)
+=> 0x101f0 <main()+20>:	lw	a5,-20(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x0	0
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101f0	0x101f0 <main()+20>
+7	    volatile int c = a + b;    // add
+=> 0x00000000000101f0 <main()+20>:	fec42783        	lw	a5,-20(s0)
+   0x00000000000101f4 <main()+24>:	0007871b        	sext.w	a4,a5
+=> 0x101f4 <main()+24>:	sext.w	a4,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x0	0
+a5             0x3	3
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101f4	0x101f4 <main()+24>
+0x00000000000101f4	7	    volatile int c = a + b;    // add
+   0x00000000000101f0 <main()+20>:	fec42783        	lw	a5,-20(s0)
+=> 0x00000000000101f4 <main()+24>:	0007871b        	sext.w	a4,a5
+=> 0x101f8 <main()+28>:	lw	a5,-24(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x3	3
+a5             0x3	3
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101f8	0x101f8 <main()+28>
+7	    volatile int c = a + b;    // add
+=> 0x00000000000101f8 <main()+28>:	fe842783        	lw	a5,-24(s0)
+   0x00000000000101fc <main()+32>:	2781              	sext.w	a5,a5
+=> 0x101fc <main()+32>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x3	3
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101fc	0x101fc <main()+32>
+0x00000000000101fc	7	    volatile int c = a + b;    // add
+   0x00000000000101f8 <main()+28>:	fe842783        	lw	a5,-24(s0)
+=> 0x00000000000101fc <main()+32>:	2781              	sext.w	a5,a5
+=> 0x101fe <main()+34>:	addw	a5,a5,a4
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x3	3
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x101fe	0x101fe <main()+34>
+7	    volatile int c = a + b;    // add
+=> 0x00000000000101fe <main()+34>:	9fb9              	addw	a5,a5,a4
+   0x0000000000010200 <main()+36>:	2781              	sext.w	a5,a5
+=> 0x10200 <main()+36>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x3	3
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10200	0x10200 <main()+36>
+0x0000000000010200	7	    volatile int c = a + b;    // add
+   0x00000000000101fe <main()+34>:	9fb9              	addw	a5,a5,a4
+=> 0x0000000000010200 <main()+36>:	2781              	sext.w	a5,a5
+=> 0x10202 <main()+38>:	sw	a5,-28(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x3	3
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10202	0x10202 <main()+38>
+7	    volatile int c = a + b;    // add
+=> 0x0000000000010202 <main()+38>:	fef42223        	sw	a5,-28(s0)
+=> 0x10206 <main()+42>:	lw	a5,-28(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x3	3
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10206	0x10206 <main()+42>
+8	    volatile int d = c - a;    // sub
+=> 0x0000000000010206 <main()+42>:	fe442783        	lw	a5,-28(s0)
+   0x000000000001020a <main()+46>:	0007871b        	sext.w	a4,a5
+=> 0x1020a <main()+46>:	sext.w	a4,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x3	3
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1020a	0x1020a <main()+46>
+0x000000000001020a	8	    volatile int d = c - a;    // sub
+   0x0000000000010206 <main()+42>:	fe442783        	lw	a5,-28(s0)
+=> 0x000000000001020a <main()+46>:	0007871b        	sext.w	a4,a5
+=> 0x1020e <main()+50>:	lw	a5,-20(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1020e	0x1020e <main()+50>
+8	    volatile int d = c - a;    // sub
+=> 0x000000000001020e <main()+50>:	fec42783        	lw	a5,-20(s0)
+   0x0000000000010212 <main()+54>:	2781              	sext.w	a5,a5
+=> 0x10212 <main()+54>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x3	3
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10212	0x10212 <main()+54>
+0x0000000000010212	8	    volatile int d = c - a;    // sub
+   0x000000000001020e <main()+50>:	fec42783        	lw	a5,-20(s0)
+=> 0x0000000000010212 <main()+54>:	2781              	sext.w	a5,a5
+=> 0x10214 <main()+56>:	subw	a5,a4,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x3	3
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10214	0x10214 <main()+56>
+8	    volatile int d = c - a;    // sub
+=> 0x0000000000010214 <main()+56>:	40f707bb        	subw	a5,a4,a5
+   0x0000000000010218 <main()+60>:	2781              	sext.w	a5,a5
+=> 0x10218 <main()+60>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10218	0x10218 <main()+60>
+0x0000000000010218	8	    volatile int d = c - a;    // sub
+   0x0000000000010214 <main()+56>:	40f707bb        	subw	a5,a4,a5
+=> 0x0000000000010218 <main()+60>:	2781              	sext.w	a5,a5
+=> 0x1021a <main()+62>:	sw	a5,-32(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1021a	0x1021a <main()+62>
+8	    volatile int d = c - a;    // sub
+=> 0x000000000001021a <main()+62>:	fef42023        	sw	a5,-32(s0)
+=> 0x1021e <main()+66>:	lw	a5,-28(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1021e	0x1021e <main()+66>
+9	    volatile int e = c << 1;   // sll
+=> 0x000000000001021e <main()+66>:	fe442783        	lw	a5,-28(s0)
+   0x0000000000010222 <main()+70>:	2781              	sext.w	a5,a5
+=> 0x10222 <main()+70>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10222	0x10222 <main()+70>
+0x0000000000010222	9	    volatile int e = c << 1;   // sll
+   0x000000000001021e <main()+66>:	fe442783        	lw	a5,-28(s0)
+=> 0x0000000000010222 <main()+70>:	2781              	sext.w	a5,a5
+=> 0x10224 <main()+72>:	slliw	a5,a5,0x1
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10224	0x10224 <main()+72>
+9	    volatile int e = c << 1;   // sll
+=> 0x0000000000010224 <main()+72>:	0017979b        	slliw	a5,a5,0x1
+   0x0000000000010228 <main()+76>:	2781              	sext.w	a5,a5
+=> 0x10228 <main()+76>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0xe	14
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10228	0x10228 <main()+76>
+0x0000000000010228	9	    volatile int e = c << 1;   // sll
+   0x0000000000010224 <main()+72>:	0017979b        	slliw	a5,a5,0x1
+=> 0x0000000000010228 <main()+76>:	2781              	sext.w	a5,a5
+=> 0x1022a <main()+78>:	sw	a5,-36(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0xe	14
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1022a	0x1022a <main()+78>
+9	    volatile int e = c << 1;   // sll
+=> 0x000000000001022a <main()+78>:	fcf42e23        	sw	a5,-36(s0)
+=> 0x1022e <main()+82>:	lw	a5,-36(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0xe	14
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1022e	0x1022e <main()+82>
+10	    volatile int f = e >> 1;   // srl
+=> 0x000000000001022e <main()+82>:	fdc42783        	lw	a5,-36(s0)
+   0x0000000000010232 <main()+86>:	2781              	sext.w	a5,a5
+=> 0x10232 <main()+86>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0xe	14
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10232	0x10232 <main()+86>
+0x0000000000010232	10	    volatile int f = e >> 1;   // srl
+   0x000000000001022e <main()+82>:	fdc42783        	lw	a5,-36(s0)
+=> 0x0000000000010232 <main()+86>:	2781              	sext.w	a5,a5
+=> 0x10234 <main()+88>:	sraiw	a5,a5,0x1
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0xe	14
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10234	0x10234 <main()+88>
+10	    volatile int f = e >> 1;   // srl
+=> 0x0000000000010234 <main()+88>:	4017d79b        	sraiw	a5,a5,0x1
+   0x0000000000010238 <main()+92>:	2781              	sext.w	a5,a5
+=> 0x10238 <main()+92>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10238	0x10238 <main()+92>
+0x0000000000010238	10	    volatile int f = e >> 1;   // srl
+   0x0000000000010234 <main()+88>:	4017d79b        	sraiw	a5,a5,0x1
+=> 0x0000000000010238 <main()+92>:	2781              	sext.w	a5,a5
+=> 0x1023a <main()+94>:	sw	a5,-40(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1023a	0x1023a <main()+94>
+10	    volatile int f = e >> 1;   // srl
+=> 0x000000000001023a <main()+94>:	fcf42c23        	sw	a5,-40(s0)
+=> 0x1023e <main()+98>:	lw	a5,-36(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1023e	0x1023e <main()+98>
+11	    volatile int g = e & d;    // and
+=> 0x000000000001023e <main()+98>:	fdc42783        	lw	a5,-36(s0)
+   0x0000000000010242 <main()+102>:	0007871b        	sext.w	a4,a5
+=> 0x10242 <main()+102>:	sext.w	a4,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0xe	14
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10242	0x10242 <main()+102>
+0x0000000000010242	11	    volatile int g = e & d;    // and
+   0x000000000001023e <main()+98>:	fdc42783        	lw	a5,-36(s0)
+=> 0x0000000000010242 <main()+102>:	0007871b        	sext.w	a4,a5
+=> 0x10246 <main()+106>:	lw	a5,-32(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0xe	14
+a5             0xe	14
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10246	0x10246 <main()+106>
+11	    volatile int g = e & d;    // and
+=> 0x0000000000010246 <main()+106>:	fe042783        	lw	a5,-32(s0)
+   0x000000000001024a <main()+110>:	2781              	sext.w	a5,a5
+=> 0x1024a <main()+110>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0xe	14
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1024a	0x1024a <main()+110>
+0x000000000001024a	11	    volatile int g = e & d;    // and
+   0x0000000000010246 <main()+106>:	fe042783        	lw	a5,-32(s0)
+=> 0x000000000001024a <main()+110>:	2781              	sext.w	a5,a5
+=> 0x1024c <main()+112>:	and	a5,a5,a4
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0xe	14
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1024c	0x1024c <main()+112>
+11	    volatile int g = e & d;    // and
+=> 0x000000000001024c <main()+112>:	8ff9              	and	a5,a5,a4
+   0x000000000001024e <main()+114>:	2781              	sext.w	a5,a5
+=> 0x1024e <main()+114>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0xe	14
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1024e	0x1024e <main()+114>
+0x000000000001024e	11	    volatile int g = e & d;    // and
+   0x000000000001024c <main()+112>:	8ff9              	and	a5,a5,a4
+=> 0x000000000001024e <main()+114>:	2781              	sext.w	a5,a5
+=> 0x10250 <main()+116>:	sw	a5,-44(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0xe	14
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10250	0x10250 <main()+116>
+11	    volatile int g = e & d;    // and
+=> 0x0000000000010250 <main()+116>:	fcf42a23        	sw	a5,-44(s0)
+=> 0x10254 <main()+120>:	lw	a5,-44(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0xe	14
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10254	0x10254 <main()+120>
+12	    volatile int h = g | a;    // or
+=> 0x0000000000010254 <main()+120>:	fd442783        	lw	a5,-44(s0)
+   0x0000000000010258 <main()+124>:	0007871b        	sext.w	a4,a5
+=> 0x10258 <main()+124>:	sext.w	a4,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0xe	14
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10258	0x10258 <main()+124>
+0x0000000000010258	12	    volatile int h = g | a;    // or
+   0x0000000000010254 <main()+120>:	fd442783        	lw	a5,-44(s0)
+=> 0x0000000000010258 <main()+124>:	0007871b        	sext.w	a4,a5
+=> 0x1025c <main()+128>:	lw	a5,-20(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x4	4
+a5             0x4	4
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1025c	0x1025c <main()+128>
+12	    volatile int h = g | a;    // or
+=> 0x000000000001025c <main()+128>:	fec42783        	lw	a5,-20(s0)
+   0x0000000000010260 <main()+132>:	2781              	sext.w	a5,a5
+=> 0x10260 <main()+132>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x4	4
+a5             0x3	3
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10260	0x10260 <main()+132>
+0x0000000000010260	12	    volatile int h = g | a;    // or
+   0x000000000001025c <main()+128>:	fec42783        	lw	a5,-20(s0)
+=> 0x0000000000010260 <main()+132>:	2781              	sext.w	a5,a5
+=> 0x10262 <main()+134>:	or	a5,a5,a4
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x4	4
+a5             0x3	3
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10262	0x10262 <main()+134>
+12	    volatile int h = g | a;    // or
+=> 0x0000000000010262 <main()+134>:	8fd9              	or	a5,a5,a4
+   0x0000000000010264 <main()+136>:	2781              	sext.w	a5,a5
+=> 0x10264 <main()+136>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x4	4
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10264	0x10264 <main()+136>
+0x0000000000010264	12	    volatile int h = g | a;    // or
+   0x0000000000010262 <main()+134>:	8fd9              	or	a5,a5,a4
+=> 0x0000000000010264 <main()+136>:	2781              	sext.w	a5,a5
+=> 0x10266 <main()+138>:	sw	a5,-48(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x4	4
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10266	0x10266 <main()+138>
+12	    volatile int h = g | a;    // or
+=> 0x0000000000010266 <main()+138>:	fcf42823        	sw	a5,-48(s0)
+=> 0x1026a <main()+142>:	lw	a5,-48(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x4	4
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1026a	0x1026a <main()+142>
+13	    volatile int i = h ^ f;    // xor
+=> 0x000000000001026a <main()+142>:	fd042783        	lw	a5,-48(s0)
+   0x000000000001026e <main()+146>:	0007871b        	sext.w	a4,a5
+=> 0x1026e <main()+146>:	sext.w	a4,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x4	4
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1026e	0x1026e <main()+146>
+0x000000000001026e	13	    volatile int i = h ^ f;    // xor
+   0x000000000001026a <main()+142>:	fd042783        	lw	a5,-48(s0)
+=> 0x000000000001026e <main()+146>:	0007871b        	sext.w	a4,a5
+=> 0x10272 <main()+150>:	lw	a5,-40(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10272	0x10272 <main()+150>
+13	    volatile int i = h ^ f;    // xor
+=> 0x0000000000010272 <main()+150>:	fd842783        	lw	a5,-40(s0)
+   0x0000000000010276 <main()+154>:	2781              	sext.w	a5,a5
+=> 0x10276 <main()+154>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10276	0x10276 <main()+154>
+0x0000000000010276	13	    volatile int i = h ^ f;    // xor
+   0x0000000000010272 <main()+150>:	fd842783        	lw	a5,-40(s0)
+=> 0x0000000000010276 <main()+154>:	2781              	sext.w	a5,a5
+=> 0x10278 <main()+156>:	xor	a5,a5,a4
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x7	7
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10278	0x10278 <main()+156>
+13	    volatile int i = h ^ f;    // xor
+=> 0x0000000000010278 <main()+156>:	8fb9              	xor	a5,a5,a4
+   0x000000000001027a <main()+158>:	2781              	sext.w	a5,a5
+=> 0x1027a <main()+158>:	sext.w	a5,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1027a	0x1027a <main()+158>
+0x000000000001027a	13	    volatile int i = h ^ f;    // xor
+   0x0000000000010278 <main()+156>:	8fb9              	xor	a5,a5,a4
+=> 0x000000000001027a <main()+158>:	2781              	sext.w	a5,a5
+=> 0x1027c <main()+160>:	sw	a5,-52(s0)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1027c	0x1027c <main()+160>
+13	    volatile int i = h ^ f;    // xor
+=> 0x000000000001027c <main()+160>:	fcf42623        	sw	a5,-52(s0)
+=> 0x10280 <main()+164>:	li	a5,0
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10280	0x10280 <main()+164>
+15	    return 0;
+=> 0x0000000000010280 <main()+164>:	4781              	li	a5,0
+=> 0x10282 <main()+166>:	mv	a0,a5
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10282	0x10282 <main()+166>
+16	}
+=> 0x0000000000010282 <main()+166>:	853e              	mv	a0,a5
+   0x0000000000010284 <main()+168>:	70e2              	ld	ra,56(sp)
+   0x0000000000010286 <main()+170>:	7442              	ld	s0,48(sp)
+   0x0000000000010288 <main()+172>:	6121              	addi	sp,sp,64
+   0x000000000001028a <main()+174>:	8082              	ret
+=> 0x10284 <main()+168>:	ld	ra,56(sp)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10284	0x10284 <main()+168>
+0x0000000000010284	16	}
+   0x0000000000010282 <main()+166>:	853e              	mv	a0,a5
+=> 0x0000000000010284 <main()+168>:	70e2              	ld	ra,56(sp)
+   0x0000000000010286 <main()+170>:	7442              	ld	s0,48(sp)
+   0x0000000000010288 <main()+172>:	6121              	addi	sp,sp,64
+   0x000000000001028a <main()+174>:	8082              	ret
+=> 0x10286 <main()+170>:	ld	s0,48(sp)
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10286	0x10286 <main()+170>
+0x0000000000010286	16	}
+   0x0000000000010282 <main()+166>:	853e              	mv	a0,a5
+   0x0000000000010284 <main()+168>:	70e2              	ld	ra,56(sp)
+=> 0x0000000000010286 <main()+170>:	7442              	ld	s0,48(sp)
+   0x0000000000010288 <main()+172>:	6121              	addi	sp,sp,64
+   0x000000000001028a <main()+174>:	8082              	ret
+=> 0x10288 <main()+172>:	addi	sp,sp,64
+ra             0x0	0x0
+sp             0x2aaaab2aa9b0	0x2aaaab2aa9b0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x0	0x0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x10288	0x10288 <main()+172>
+0x0000000000010288	16	}
+   0x0000000000010282 <main()+166>:	853e              	mv	a0,a5
+   0x0000000000010284 <main()+168>:	70e2              	ld	ra,56(sp)
+   0x0000000000010286 <main()+170>:	7442              	ld	s0,48(sp)
+=> 0x0000000000010288 <main()+172>:	6121              	addi	sp,sp,64
+   0x000000000001028a <main()+174>:	8082              	ret
+=> 0x1028a <main()+174>:	ret
+ra             0x0	0x0
+sp             0x2aaaab2aa9f0	0x2aaaab2aa9f0
+gp             0x0	0x0
+tp             0x0	0x0
+t0             0x0	0
+t1             0x0	0
+t2             0x0	0
+fp             0x0	0x0
+s1             0x0	0
+a0             0x0	0
+a1             0x0	0
+a2             0x0	0
+a3             0x0	0
+a4             0x7	7
+a5             0x0	0
+a6             0x0	0
+a7             0x0	0
+s2             0x0	0
+s3             0x0	0
+s4             0x0	0
+s5             0x0	0
+s6             0x0	0
+s7             0x0	0
+s8             0x0	0
+s9             0x0	0
+s10            0x0	0
+s11            0x0	0
+t3             0x0	0
+t4             0x0	0
+t5             0x0	0
+t6             0x0	0
+pc             0x1028a	0x1028a <main()+174>
+0x000000000001028a	16	}
+   0x0000000000010282 <main()+166>:	853e              	mv	a0,a5
+   0x0000000000010284 <main()+168>:	70e2              	ld	ra,56(sp)
+   0x0000000000010286 <main()+170>:	7442              	ld	s0,48(sp)
+   0x0000000000010288 <main()+172>:	6121              	addi	sp,sp,64
+=> 0x000000000001028a <main()+174>:	8082              	ret
+=> 0x0:	0x0000000000000000 in ?? ()
+=> 0x0000000000000000:	
