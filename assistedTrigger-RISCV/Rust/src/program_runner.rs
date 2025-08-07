@@ -4,7 +4,7 @@ use std::process::{Command, Stdio};
 use std::thread::sleep;
 use std::time::Duration;
 
-pub fn run_program(program_path: &str) {
+pub fn run_program(program_path: &str, trace_path: &str) {
     println!("[*] Starting QEMU...");
 
     let mut qemu_child = Command::new("qemu-riscv64")
@@ -61,13 +61,13 @@ pub fn run_program(program_path: &str) {
 
     println!("[*] Parsing trace...");
     let parsed = parse_trace(&trace);
-    write("./traces/trace_cleaned.log", parsed).unwrap();
+    write(trace_path, parsed).unwrap();
 
     println!("[*] Cleaning up...");
     let _ = qemu_child.kill();
     let _ = qemu_child.wait();
 
-    println!("[*] Done. Output written to traces/trace_cleaned.log");
+    println!("[*] Done. Output written to {}", trace_path);
 }
 
 

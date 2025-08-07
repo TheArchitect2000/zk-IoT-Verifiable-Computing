@@ -30,6 +30,18 @@ pub fn opcode_to_id(op: &str) -> Option<u64> {
         "mul" => Some(3),
         "addi" => Some(4),
         "div" => Some(5),
+        "sd" => Some(6),
+        "ld" => Some(7),
+        "li" => Some(8),
+        "lw" => Some(9),
+        "addw" => Some(10),
+        "subw" => Some(11),
+        "slliw" => Some(12),
+        "sraiw" => Some(13),
+        "xor" => Some(14),
+        "or" => Some(15),
+        "and" => Some(16),
+        "mv" => Some(17), // move
         _ => None,
     }
 }

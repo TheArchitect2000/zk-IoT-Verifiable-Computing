@@ -8,7 +8,7 @@ fn main() {
     let trace = "./traces/trace_cleaned.log";
     // let trace = "./traces/sample_trace.log";
 
-    run_program(bin);
+    run_program(bin, trace);
     let parsed = parse_trace(trace);
     let rows = convert_trace_to_rows(&parsed);
 
