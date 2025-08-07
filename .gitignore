@@ -4,3 +4,4 @@ broker_host.txt
 read_registers.cpp
 read_registers
 test
+assistedTrigger-RISCV/Rust/target

@@ -1,2 +1,0 @@
-CircuitData<GoldilocksField, PoseidonGoldilocksConfig, 2>
-CircuitData<GoldilocksField, PoseidonGoldilocksConfig, 2>: serde::ser::Serialize

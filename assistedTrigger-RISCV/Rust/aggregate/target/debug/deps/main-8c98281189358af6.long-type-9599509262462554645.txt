@@ -1,1 +1,0 @@
-Result<(plonky2::plonk::proof::ProofWithPublicInputs<plonky2_field::goldilocks_field::GoldilocksField, plonky2::plonk::config::PoseidonGoldilocksConfig, 2>, plonky2::plonk::circuit_data::CircuitData<plonky2_field::goldilocks_field::GoldilocksField, plonky2::plonk::config::PoseidonGoldilocksConfig, 2>), anyhow::Error>
