@@ -10,6 +10,8 @@ use log::Level;
 use plonky2::plonk::proof::ProofWithPublicInputs;
 use crate::zk::InstructionRow;
 use plonky2::field::types::Field64;
+use plonky2::iop::target::Target;
+use plonky2::iop::target::BoolTarget;
 
 pub fn prove_multi_instruction_constraint(
     rows: &[InstructionRow<GoldilocksField>],
@@ -23,12 +25,12 @@ pub fn prove_multi_instruction_constraint(
     assert!(!rows.is_empty(), "Instruction row trace is empty!");
 
     println!("Parsed {} instruction rows", rows.len());
-    for row in rows {
-        println!(
-            "opcode: {}, rs1: {}, rs2: {}, imm_flag: {}, imm_val: {}, rd: {}",
-            row.opcode, row.rs1_val, row.rs2_val, row.imm_flag, row.imm_val, row.rd_val
-        );
-    }
+    // for row in rows {
+    //     println!(
+    //         "opcode: {}, rs1: {}, rs2: {}, imm_flag: {}, imm_val: {}, rd: {}",
+    //         row.opcode, row.rs1_val, row.rs2_val, row.imm_flag, row.imm_val, row.rd_val
+    //     );
+    // }
 
     let config = CircuitConfig::standard_recursion_config();
     let mut builder = CircuitBuilder::<GoldilocksField, 2>::new(config);
@@ -149,12 +151,49 @@ pub fn prove_multi_instruction_constraint(
         // let is_xor_or_or = builder.or(is_xor, is_or);
         // let is_mv = builder.is_equal(*opcode, c17); 
 
-        // let and_res = builder.mul(*rs1, rs2_or_imm);
-        // let or_res = {
-        //     let sum = builder.add(*rs1, rs2_or_imm);
-        //     let product = builder.mul(*rs1, rs2_or_imm);
-        //     builder.sub(sum, product)
-        // };
+        // === Bitwise Logic (32-bit) ===
+        let rs1_bits: Vec<BoolTarget> = builder.split_le(*rs1, 32);
+        let rs2_bits: Vec<BoolTarget> = builder.split_le(rs2_or_imm, 32);
+
+        // Enforce bits are boolean
+        for &bit in rs1_bits.iter().chain(rs2_bits.iter()) {
+            builder.assert_bool(bit);
+        }
+
+        // Compute AND: a & b = a * b
+        let mut and_bits = Vec::with_capacity(32);
+        for i in 0..32 {
+            let a = rs1_bits[i].target;
+            let b = rs2_bits[i].target;
+            and_bits.push(builder.mul(a, b));
+        }
+
+        // Compute OR: a | b = a + b - a * b
+        let mut or_bits = Vec::with_capacity(32);
+        for i in 0..32 {
+            let a = rs1_bits[i].target;
+            let b = rs2_bits[i].target;
+            let ab = builder.mul(a, b);
+            let a_plus_b = builder.add(a, b);
+            let or_bit = builder.sub(a_plus_b, ab);
+            or_bits.push(or_bit);
+        }
+
+        // Recombine bits into a field element: result = ∑ bit_i * 2^i
+        let mut and_res = builder.zero();
+        let mut or_res = builder.zero();
+        let mut coeff = GoldilocksField::ONE;
+
+        for i in 0..32 {
+            let c = builder.constant(coeff);
+            let and_term = builder.mul(and_bits[i], c);
+            let or_term = builder.mul(or_bits[i], c);
+            and_res = builder.add(and_res, and_term);
+            or_res = builder.add(or_res, or_term);
+            coeff = coeff.double(); // *= 2
+        }
+
+
 
         
 
@@ -172,8 +211,6 @@ pub fn prove_multi_instruction_constraint(
         // Placeholder logic for unimplemented ops
         let dummy_shift = *rs1; // shift ops not implemented yet
         let dummy_bitwise = *rs1; // xor/or/and not supported on Target
-
-
 
 
         // // Conditional result based on opcode
@@ -205,8 +242,9 @@ pub fn prove_multi_instruction_constraint(
         result = builder.select(is_slliw, dummy_shift, result);
         result = builder.select(is_sraiw, dummy_shift, result);
         result = builder.select(is_xor, dummy_bitwise, result);
-        result = builder.select(is_or, dummy_bitwise, result);
-        result = builder.select(is_and, dummy_bitwise, result);
+
+        result = builder.select(is_or, or_res, result);
+        result = builder.select(is_and, and_res, result);
 
 
 

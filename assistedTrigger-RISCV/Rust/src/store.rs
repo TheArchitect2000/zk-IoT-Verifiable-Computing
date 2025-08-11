@@ -1,4 +1,6 @@
 use std::fs;
+use std::fs::File;
+use std::io::Write;
 
 use plonky2::field::goldilocks_field::GoldilocksField;
 use plonky2::plonk::circuit_data::CircuitData;
@@ -19,8 +21,15 @@ pub fn save_proof_and_circuit(
         .to_bytes(&gate_serializer, &generator_serializer)
         .unwrap();
 
-    fs::write(proof_path, proof_bytes).unwrap();
-    fs::write(circuit_path, data_bytes).unwrap();
+    fs::write("./proof.bin", proof_bytes).unwrap();
+    fs::write("./circuit.bin", data_bytes).unwrap();
+    
+    // let mut file = File::create(proof_path).expect("Unable to create file");
+    // write!(file, "{:#?}", proof).expect("Unable to write proof debug output");
+
+    // file = File::create(circuit_path).expect("Unable to create file");
+    // write!(file, "{:#?}", data).expect("Unable to write proof debug output");
+
 }
 
 pub fn load_proof_and_circuit(

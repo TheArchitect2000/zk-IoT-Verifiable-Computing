@@ -5,20 +5,23 @@ use riscv_trace_reader::run_program;
 
 fn main() {
     let bin = "./test.bin";
-    let trace = "./traces/trace_cleaned.log";
+    let trace = "./traces/sample_trace.log";
     // let trace = "./traces/sample_trace.log";
 
-    run_program(bin, trace);
+    // run_program(bin, trace);
     let parsed = parse_trace(trace);
     let rows = convert_trace_to_rows(&parsed);
 
     match prove_multi_instruction_constraint(&rows) {
         Ok((proof, circuit)) => {
             println!("✅ Generated Proof Successfully!");
-            println!("Generated proof for {} instructions", rows.len());
-            println!("Public inputs: {:?}", proof.public_inputs);
+            // println!("Generated proof for {} instructions", rows.len());
+            // println!("Public inputs: {:?}", proof.public_inputs);
+            // println!("Proof size: {} bytes", proof.to_bytes().len());
+            // println!("proof: {:?}", proof);
 
-            save_proof_and_circuit(&proof, &circuit, "./proof.bin", "./circuit.bin");
+            
+            save_proof_and_circuit(&proof, &circuit, "./proof.txt", "./circuit.txt");
             println!("Proof and circuit saved to files.");
 
             let (proof_loaded, circuit_loaded) = load_proof_and_circuit("./proof.bin", "./circuit.bin");

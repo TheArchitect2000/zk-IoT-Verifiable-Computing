@@ -50,28 +50,28 @@ pub fn convert_trace_to_rows(entries: &[TraceEntry]) -> Vec<InstructionRow<Goldi
     let mut rows = Vec::new();
     let mut registers: HashMap<usize, u64> = (0..32).map(|i| (i, 0)).collect();
 
-    for entry in entries {
-        println!("0x{:08x}: {}", entry.pc, entry.opcode);
+    // for entry in entries {
+    //     println!("0x{:08x}: {}", entry.pc, entry.opcode);
 
-        if let Some(rd) = &entry.rd {
-            let val = entry.reg_values_after.get(rd).unwrap_or(&0);
-            println!("  rd:  {} = {}", rd, val);
-        }
+    //     if let Some(rd) = &entry.rd {
+    //         let val = entry.reg_values_after.get(rd).unwrap_or(&0);
+    //         println!("  rd:  {} = {}", rd, val);
+    //     }
 
-        if let Some(rs1) = &entry.rs1 {
-            let val = entry.reg_values_before.get(rs1).unwrap_or(&0);
-            println!("  rs1: {} = {}", rs1, val);
-        }
+    //     if let Some(rs1) = &entry.rs1 {
+    //         let val = entry.reg_values_before.get(rs1).unwrap_or(&0);
+    //         println!("  rs1: {} = {}", rs1, val);
+    //     }
 
-        if let Some(rs2) = &entry.rs2 {
-            let val = entry.reg_values_before.get(rs2).unwrap_or(&0);
-            println!("  rs2: {} = {}", rs2, val);
-        }
+    //     if let Some(rs2) = &entry.rs2 {
+    //         let val = entry.reg_values_before.get(rs2).unwrap_or(&0);
+    //         println!("  rs2: {} = {}", rs2, val);
+    //     }
 
-        if let Some(imm) = entry.imm {
-            println!("  imm: {}", imm);
-        }
-    }
+    //     if let Some(imm) = entry.imm {
+    //         println!("  imm: {}", imm);
+    //     }
+    // }
 
     for entry in entries {
         // Update registers AFTER instruction execution

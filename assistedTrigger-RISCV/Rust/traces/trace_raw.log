@@ -9,7 +9,7 @@ Reading symbols from ./test.bin...
 PC: 0x101de
 => 0x101de <main()+2>:	sd	ra,56(sp)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
@@ -49,7 +49,7 @@ pc             0x101de	0x101de <main()+2>
 PC: 0x101e0
 => 0x101e0 <main()+4>:	sd	s0,48(sp)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
@@ -89,7 +89,7 @@ pc             0x101e0	0x101e0 <main()+4>
 PC: 0x101e2
 => 0x101e2 <main()+6>:	addi	s0,sp,64
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
@@ -127,13 +127,13 @@ pc             0x101e2	0x101e2 <main()+6>
 PC: 0x101e4
 => 0x101e4 <main()+8>:	li	a5,3
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -165,13 +165,13 @@ pc             0x101e4	0x101e4 <main()+8>
 PC: 0x101e6
 => 0x101e6 <main()+10>:	sw	a5,-20(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -203,13 +203,13 @@ pc             0x101e6	0x101e6 <main()+10>
 PC: 0x101ea
 => 0x101ea <main()+14>:	li	a5,4
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -241,13 +241,13 @@ pc             0x101ea	0x101ea <main()+14>
 PC: 0x101ec
 => 0x101ec <main()+16>:	sw	a5,-24(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -279,13 +279,13 @@ pc             0x101ec	0x101ec <main()+16>
 PC: 0x101f0
 => 0x101f0 <main()+20>:	lw	a5,-20(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -317,13 +317,13 @@ pc             0x101f0	0x101f0 <main()+20>
 PC: 0x101f4
 => 0x101f4 <main()+24>:	sext.w	a4,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -355,13 +355,13 @@ pc             0x101f4	0x101f4 <main()+24>
 PC: 0x101f8
 => 0x101f8 <main()+28>:	lw	a5,-24(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -393,13 +393,13 @@ pc             0x101f8	0x101f8 <main()+28>
 PC: 0x101fc
 => 0x101fc <main()+32>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -431,13 +431,13 @@ pc             0x101fc	0x101fc <main()+32>
 PC: 0x101fe
 => 0x101fe <main()+34>:	addw	a5,a5,a4
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -469,13 +469,13 @@ pc             0x101fe	0x101fe <main()+34>
 PC: 0x10200
 => 0x10200 <main()+36>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -506,13 +506,13 @@ pc             0x10200	0x10200 <main()+36>
 PC: 0x10202
 => 0x10202 <main()+38>:	sw	a5,-28(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -544,13 +544,13 @@ pc             0x10202	0x10202 <main()+38>
 PC: 0x10206
 => 0x10206 <main()+42>:	lw	a5,-28(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -582,13 +582,13 @@ pc             0x10206	0x10206 <main()+42>
 PC: 0x1020a
 => 0x1020a <main()+46>:	sext.w	a4,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -620,13 +620,13 @@ pc             0x1020a	0x1020a <main()+46>
 PC: 0x1020e
 => 0x1020e <main()+50>:	lw	a5,-20(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -658,13 +658,13 @@ pc             0x1020e	0x1020e <main()+50>
 PC: 0x10212
 => 0x10212 <main()+54>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -696,13 +696,13 @@ pc             0x10212	0x10212 <main()+54>
 PC: 0x10214
 => 0x10214 <main()+56>:	subw	a5,a4,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -734,13 +734,13 @@ pc             0x10214	0x10214 <main()+56>
 PC: 0x10218
 => 0x10218 <main()+60>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -771,13 +771,13 @@ pc             0x10218	0x10218 <main()+60>
 PC: 0x1021a
 => 0x1021a <main()+62>:	sw	a5,-32(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -809,13 +809,13 @@ pc             0x1021a	0x1021a <main()+62>
 PC: 0x1021e
 => 0x1021e <main()+66>:	lw	a5,-28(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -847,13 +847,13 @@ pc             0x1021e	0x1021e <main()+66>
 PC: 0x10222
 => 0x10222 <main()+70>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -885,13 +885,13 @@ pc             0x10222	0x10222 <main()+70>
 PC: 0x10224
 => 0x10224 <main()+72>:	slliw	a5,a5,0x1
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -923,13 +923,13 @@ pc             0x10224	0x10224 <main()+72>
 PC: 0x10228
 => 0x10228 <main()+76>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -960,13 +960,13 @@ pc             0x10228	0x10228 <main()+76>
 PC: 0x1022a
 => 0x1022a <main()+78>:	sw	a5,-36(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -998,13 +998,13 @@ pc             0x1022a	0x1022a <main()+78>
 PC: 0x1022e
 => 0x1022e <main()+82>:	lw	a5,-36(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1036,13 +1036,13 @@ pc             0x1022e	0x1022e <main()+82>
 PC: 0x10232
 => 0x10232 <main()+86>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1074,13 +1074,13 @@ pc             0x10232	0x10232 <main()+86>
 PC: 0x10234
 => 0x10234 <main()+88>:	sraiw	a5,a5,0x1
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1112,13 +1112,13 @@ pc             0x10234	0x10234 <main()+88>
 PC: 0x10238
 => 0x10238 <main()+92>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1149,13 +1149,13 @@ pc             0x10238	0x10238 <main()+92>
 PC: 0x1023a
 => 0x1023a <main()+94>:	sw	a5,-40(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1187,13 +1187,13 @@ pc             0x1023a	0x1023a <main()+94>
 PC: 0x1023e
 => 0x1023e <main()+98>:	lw	a5,-36(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1225,13 +1225,13 @@ pc             0x1023e	0x1023e <main()+98>
 PC: 0x10242
 => 0x10242 <main()+102>:	sext.w	a4,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1263,13 +1263,13 @@ pc             0x10242	0x10242 <main()+102>
 PC: 0x10246
 => 0x10246 <main()+106>:	lw	a5,-32(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1301,13 +1301,13 @@ pc             0x10246	0x10246 <main()+106>
 PC: 0x1024a
 => 0x1024a <main()+110>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1339,13 +1339,13 @@ pc             0x1024a	0x1024a <main()+110>
 PC: 0x1024c
 => 0x1024c <main()+112>:	and	a5,a5,a4
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1377,13 +1377,13 @@ pc             0x1024c	0x1024c <main()+112>
 PC: 0x1024e
 => 0x1024e <main()+114>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1414,13 +1414,13 @@ pc             0x1024e	0x1024e <main()+114>
 PC: 0x10250
 => 0x10250 <main()+116>:	sw	a5,-44(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1452,13 +1452,13 @@ pc             0x10250	0x10250 <main()+116>
 PC: 0x10254
 => 0x10254 <main()+120>:	lw	a5,-44(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1490,13 +1490,13 @@ pc             0x10254	0x10254 <main()+120>
 PC: 0x10258
 => 0x10258 <main()+124>:	sext.w	a4,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1528,13 +1528,13 @@ pc             0x10258	0x10258 <main()+124>
 PC: 0x1025c
 => 0x1025c <main()+128>:	lw	a5,-20(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1566,13 +1566,13 @@ pc             0x1025c	0x1025c <main()+128>
 PC: 0x10260
 => 0x10260 <main()+132>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1604,13 +1604,13 @@ pc             0x10260	0x10260 <main()+132>
 PC: 0x10262
 => 0x10262 <main()+134>:	or	a5,a5,a4
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1642,13 +1642,13 @@ pc             0x10262	0x10262 <main()+134>
 PC: 0x10264
 => 0x10264 <main()+136>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1679,13 +1679,13 @@ pc             0x10264	0x10264 <main()+136>
 PC: 0x10266
 => 0x10266 <main()+138>:	sw	a5,-48(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1717,13 +1717,13 @@ pc             0x10266	0x10266 <main()+138>
 PC: 0x1026a
 => 0x1026a <main()+142>:	lw	a5,-48(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1755,13 +1755,13 @@ pc             0x1026a	0x1026a <main()+142>
 PC: 0x1026e
 => 0x1026e <main()+146>:	sext.w	a4,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1793,13 +1793,13 @@ pc             0x1026e	0x1026e <main()+146>
 PC: 0x10272
 => 0x10272 <main()+150>:	lw	a5,-40(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1831,13 +1831,13 @@ pc             0x10272	0x10272 <main()+150>
 PC: 0x10276
 => 0x10276 <main()+154>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1869,13 +1869,13 @@ pc             0x10276	0x10276 <main()+154>
 PC: 0x10278
 => 0x10278 <main()+156>:	xor	a5,a5,a4
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1907,13 +1907,13 @@ pc             0x10278	0x10278 <main()+156>
 PC: 0x1027a
 => 0x1027a <main()+158>:	sext.w	a5,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1944,13 +1944,13 @@ pc             0x1027a	0x1027a <main()+158>
 PC: 0x1027c
 => 0x1027c <main()+160>:	sw	a5,-52(s0)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -1981,13 +1981,13 @@ pc             0x1027c	0x1027c <main()+160>
 PC: 0x10280
 => 0x10280 <main()+164>:	li	a5,0
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -2022,13 +2022,13 @@ pc             0x10280	0x10280 <main()+164>
 PC: 0x10282
 => 0x10282 <main()+166>:	mv	a0,a5
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -2063,13 +2063,13 @@ pc             0x10282	0x10282 <main()+166>
 PC: 0x10284
 => 0x10284 <main()+168>:	ld	ra,56(sp)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -2104,13 +2104,13 @@ pc             0x10284	0x10284 <main()+168>
 PC: 0x10286
 => 0x10286 <main()+170>:	ld	s0,48(sp)
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
 t1             0x0	0
 t2             0x0	0
-fp             0x2aaaab2aaa60	0x2aaaab2aaa60
+fp             0x2aaaab2aaa70	0x2aaaab2aaa70
 s1             0x0	0
 a0             0x0	0
 a1             0x0	0
@@ -2145,7 +2145,7 @@ pc             0x10286	0x10286 <main()+170>
 PC: 0x10288
 => 0x10288 <main()+172>:	addi	sp,sp,64
 ra             0x0	0x0
-sp             0x2aaaab2aaa20	0x2aaaab2aaa20
+sp             0x2aaaab2aaa30	0x2aaaab2aaa30
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0
@@ -2186,7 +2186,7 @@ pc             0x10288	0x10288 <main()+172>
 PC: 0x1028a
 => 0x1028a <main()+174>:	ret
 ra             0x0	0x0
-sp             0x2aaaab2aaa60	0x2aaaab2aaa60
+sp             0x2aaaab2aaa70	0x2aaaab2aaa70
 gp             0x0	0x0
 tp             0x0	0x0
 t0             0x0	0

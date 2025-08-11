@@ -5,3 +5,7 @@ read_registers.cpp
 read_registers
 test
 assistedTrigger-RISCV/Rust/target
+assistedTrigger-RISCV/Rust/proof.bin
+assistedTrigger-RISCV/Rust/proof.txt
+assistedTrigger-RISCV/Rust/circuit.bin
+assistedTrigger-RISCV/Rust/circuit.txt
