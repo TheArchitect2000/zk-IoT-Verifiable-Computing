@@ -224,7 +224,7 @@ void commitmentGenerator() {
     uint64_t li = 0;
     uint64_t ri = 0;
 
-    if (opcode == "add" || opcode == "addi" || opcode == "mul") {
+    if (opcode == "add" || opcode == "addi" || opcode == "mul" || opcode == "sub" || opcode == "sdiv" ||opcode == "udiv") {
       ss >> leftStr >> rightStr;
 
       // Remove commas
@@ -238,7 +238,9 @@ void commitmentGenerator() {
 
       uint64_t leftInt, rightInt;
       
-      C[1+n_i+i][1+n_i+i] = 1;
+      if(opcode == "add" || opcode == "addi" || opcode == "sub" || opcode == "mul") {
+        C[1+n_i+i][1+n_i+i] = 1;
+      }
 
       if (opcode == "add" || opcode == "addi") {
         A[1+n_i+i][0] = 1;
@@ -288,6 +290,58 @@ void commitmentGenerator() {
         if (std::isdigit(rightStr[0]) || (rightStr[0] == '#' && rightStr.size() > 1 && std::isdigit(rightStr[1]))) {
           rightInt = std::stoi(rightStr[0] == '#' ? rightStr.substr(1) : rightStr);
           
+          B[1+n_i+i][0] = rightInt;
+        }
+        else {
+          if(rd_latest_used[registerMap[rightStr]] == 0){
+            ri = (registerMap[rightStr] + 1);
+          }
+          else {
+            ri = rd_latest_used[registerMap[rightStr]];
+          }
+          B[1+n_i+i][ri] = 1;
+        }
+      } else if (opcode == "sub") {
+        A[1+n_i+i][0] = 1;
+        if (std::isdigit(leftStr[0]) || (leftStr[0] == '#' && leftStr.size() > 1 && std::isdigit(leftStr[1]))) {
+          leftInt = std::stoi(leftStr[0] == '#' ? leftStr.substr(1) : leftStr);
+          B[1+n_i+i][0] = leftInt % p;
+        }
+        else {
+          if(rd_latest_used[registerMap[leftStr]] == 0){
+            li = (registerMap[leftStr] + 1);
+          }
+          else {
+            li = rd_latest_used[registerMap[leftStr]];
+          }
+          B[1+n_i+i][li] = 1;
+        }
+        
+        if (std::isdigit(rightStr[0]) || (rightStr[0] == '#' && rightStr.size() > 1 && std::isdigit(rightStr[1]))) {
+          rightInt = std::stoi(rightStr[0] == '#' ? rightStr.substr(1) : rightStr);
+          B[1+n_i+i][0] = ((rightInt * (p - 1)) % p);
+        }
+        else {
+          if(rd_latest_used[registerMap[rightStr]] == 0){
+            ri = (registerMap[rightStr] + 1);
+          }
+          else {
+            ri = rd_latest_used[registerMap[rightStr]];
+          }
+          B[1+n_i+i][ri] = (p - 1);
+        }
+        
+      } else if (opcode == "sdiv" || opcode == "udiv") {
+        if(rd_latest_used[registerMap[leftStr]] == 0){
+          li = (registerMap[leftStr] + 1);
+        }
+        else {
+          li = rd_latest_used[registerMap[leftStr]];
+        }
+        C[1+n_i+i][li] = 1;
+        A[1+n_i+i][1+n_i+i] = 1;
+        if (std::isdigit(rightStr[0]) || (rightStr[0] == '#' && rightStr.size() > 1 && std::isdigit(rightStr[1]))) {
+          rightInt = std::stoi(rightStr[0] == '#' ? rightStr.substr(1) : rightStr);
           B[1+n_i+i][0] = rightInt;
         }
         else {
@@ -520,6 +574,7 @@ void commitmentGenerator() {
   program_param.clear();
   program_param["A"] = nonZeroColsA[0];
   program_param["B"] = nonZeroB;
+  program_param["C"] = nonZeroColsC[0];
   program_param["rA"] = rowA[1];
   program_param["cA"] = colA[1];
   program_param["vA"] = valA[1];

@@ -28,8 +28,8 @@ void verifier() {
   bool verify = false;
 
   /*******************************  Read Commitment  ******************************/
-  cout << "openning data/program_commitment.json" << endl;
-  std::ifstream commitmentFileStream("data/program_commitment.json");
+  cout << "openning program_commitment.json" << endl;
+  std::ifstream commitmentFileStream("program_commitment.json");
   if (!commitmentFileStream.is_open()) {
       std::cerr << "Could not open the file!" << std::endl;
   }

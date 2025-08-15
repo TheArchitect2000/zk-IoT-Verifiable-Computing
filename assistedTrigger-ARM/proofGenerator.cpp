@@ -213,7 +213,7 @@ void proofGenerator() {
   cout << "\n\n\n\n*** Start proof generation ***" << endl;
 
   // Hardcoded file path
-  const char* commitmentJsonFilePath = "data/program_commitment.json";
+  const char* commitmentJsonFilePath = "program_commitment.json";
 
   // Parse the JSON file
   nlohmann::json commitmentJsonData;
@@ -248,7 +248,7 @@ void proofGenerator() {
 
 
   // Hardcoded file path
-  const char* paramJsonFilePath = "data/program_param.json";
+  const char* paramJsonFilePath = "program_param.json";
 
   // Parse the JSON file
   nlohmann::json paramJsonData;
@@ -269,6 +269,7 @@ void proofGenerator() {
   }
   vector<uint64_t> nonZeroA = paramJsonData["A"].get<vector<uint64_t>>();
   vector<vector<uint64_t>> nonZeroB = paramJsonData["B"].get<vector<vector<uint64_t>>>();
+  vector<uint64_t> nonZeroC = paramJsonData["C"].get<vector<uint64_t>>();
   vector<uint64_t> rowA = paramJsonData["rA"].get<vector<uint64_t>>();
   vector<uint64_t> colA = paramJsonData["cA"].get<vector<uint64_t>>();
   vector<uint64_t> valA = paramJsonData["vA"].get<vector<uint64_t>>();
@@ -375,7 +376,7 @@ void proofGenerator() {
     // Set the value in the matrix A
     A[i + n_i + 1][col] = 1;
   }
-  // Polynomial::printMatrix(A, "A");
+  Polynomial::printMatrix(A, "A");
   
 
   for (const auto& entry : nonZeroB) {
@@ -392,13 +393,19 @@ void proofGenerator() {
   //   // Set the value in the matrix
   //   B[row][col] = val;
   // }
-  // Polynomial::printMatrix(B, "B");
+  Polynomial::printMatrix(B, "B");
 
-  for(uint64_t i = (n - n_g); i < n; i++) {
-    // Set the value in the matrix C
-    C[i][i] = 1;
+
+
+  cout << "rowMatC" << endl;
+  uint64_t rowMatC = n_i;
+  for (uint64_t i = 0; i < nonZeroC.size(); i++) {
+    int64_t col = nonZeroC[i];
+    // Set the value in the matrix A
+    C[i + n_i + 1][col] = 1;
   }
-  // Polynomial::printMatrix(C, "C");
+  Polynomial::printMatrix(C, "C");
+  
 
   // vector<uint64_t> z;
 

@@ -14,7 +14,9 @@ mov x17, #159
 .global zkp_start
 zkp_start: nop
 mul x17, x17, x18
-add x17, x17, #28
+sub x17, x17, x18
+add x17, x17, x18
+udiv x17, x17, x18
 .global zkp_end
 zkp_end: nop
 
@@ -25,5 +27,5 @@ zkp_end: nop
 	.cfi_endproc
 .LFE0:
 	.size	main, .-main
-	.ident	"GCC: (Debian 10.2.1-6) 10.2.1 20210110"
+	.ident	"GCC: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
 	.section	.note.GNU-stack,"",@progbits

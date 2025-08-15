@@ -17,7 +17,9 @@ int main() {
         "mov x18, #25\n"
         "mov x17, #159\n"
         "mul x17, x17, x18\n"
-        "add x17, x17, #28\n"
+        "sub x17, x17, x18\n"
+        "add x17, x17, x18\n"
+        "udiv x17, x17, x18\n"
     );
     return 0;
 }

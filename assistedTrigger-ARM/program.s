@@ -12,7 +12,9 @@ main:
 	mov x18, #25
 mov x17, #159
 mul x17, x17, x18
-add x17, x17, #28
+sub x17, x17, x18
+add x17, x17, x18
+udiv x17, x17, x18
 
 // 0 "" 2
 #NO_APP
@@ -21,5 +23,5 @@ add x17, x17, #28
 	.cfi_endproc
 .LFE0:
 	.size	main, .-main
-	.ident	"GCC: (Debian 10.2.1-6) 10.2.1 20210110"
+	.ident	"GCC: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
 	.section	.note.GNU-stack,"",@progbits
