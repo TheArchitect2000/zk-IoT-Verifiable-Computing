@@ -1,0 +1,15 @@
+set logging file execution_trace.txt
+set logging overwrite on
+set logging on
+break zkp_start
+run
+stepi
+break zkp_end
+while $pc != zkp_end
+info registers
+x/i $pc
+stepi
+end
+info registers
+set logging off
+quit

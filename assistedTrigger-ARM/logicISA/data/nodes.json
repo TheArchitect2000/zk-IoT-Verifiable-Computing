@@ -1,0 +1,5 @@
+[{"Name":"zkSensor","MQTT":"panel.zksensor.tech","API":"panel.zksensor.tech/app","Default": "true"},
+{"Name":"EnergyWiseNetwork","MQTT":"panel.energywisenetwork.com","API":"panel.energywisenetwork.com/app"},
+{"Name":"Developer","MQTT":"developer.fidesinnova.io","API":"developer.fidesinnova.io/app"},
+{"Name":"TrustLearn","MQTT":"panel.trustlearn.xyz","API":"panel.trustlearn.xyz/app"},
+{"Name":"MotionCertified","MQTT":"panel.motioncertified.online","API":"panel.motioncertified.online/app"}]
