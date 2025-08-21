@@ -26,6 +26,7 @@ using ordered_json = nlohmann::ordered_json;
 #include <random>
 #include <chrono>
 #include <cstdlib>
+#include <bitset>
 
 using namespace std;
 using namespace chrono;
@@ -47,6 +48,12 @@ std::unordered_map<std::string, int> registerMap = {
     {"x20", 20},   {"x21", 21},   {"x22", 22},   {"x23", 23},
     {"x24", 24},   {"x25", 25},   {"x26", 26},   {"x27", 27},
     {"x28", 28},   {"x29", 29},   {"x30", 30}
+};
+
+struct DimEntry {
+    int i;        // index (1..8)
+    std::vector<bool> indices; // flexible indices
+    uint8_t value; // 8-bit interleaved nibble pair
 };
 
 
@@ -410,27 +417,42 @@ void proofGenerator() {
 
   uint64_t t = n_i + 1;
 
-  vector<vector<vector<uint64_t>>> dim;
   size_t dest_reg_array_size = dest_reg_array.size();
   for (size_t idx = 0; idx < dest_reg_array_size; ++idx) {
     cout << dest_reg_array[idx] << " = " 
         << src_reg1_array[idx] << " & " 
         << src_reg2_array[idx] << endl;
-        
+
     cout << dest_val_array[idx] << " = " 
         << src_val1_array[idx] << " & " 
         << src_val2_array[idx] << endl;
   }
 
-  // for(uint64_t i = 1; i<=8; i++) {
-  //   for(uint64_t j = 1; j <= 4; j++) {
+  std::vector<DimEntry> dim;
+  dim.reserve(8 * 4); // 8 is the number of registers devided, 4 is placeholders for m
 
-  //     dim[i][j].push_back(0);
-  //   }
-  // }
-  // for(auto &i : dim) {
-  //   i = (i + t) % (n + 1);
-  // }
+  for (int idx = 0; idx < 8; idx++) {
+    for (int counter = 0; counter < 4; counter++) {
+      std::vector<bool> indices;
+      uint8_t nibbleA = (src_val2_array[counter] >> (4 * idx)) & 0xF;
+      uint8_t nibbleB = (src_val1_array[counter] >> (4 * idx)) & 0xF;
+      uint8_t combined = (nibbleB << 4) | nibbleA;
+      for (int bit = 1; bit >= 0; bit--) { 
+        indices.push_back((counter >> bit) & 1);
+      }
+      dim.push_back({idx + 1, indices, combined});
+    }
+  }
+
+  // Print to verify
+    for (auto& entry : dim) {
+        std::cout << "dim[" << entry.i << "]{";
+        for (size_t j=0; j<entry.indices.size(); j++) {
+            std::cout << entry.indices[j];
+            if (j < entry.indices.size()-1) std::cout << ",";
+        }
+        std::cout << "}=" << std::bitset<8>(entry.value) << "\n";
+    }
 }
 
 
