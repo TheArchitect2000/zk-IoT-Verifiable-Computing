@@ -30,7 +30,36 @@ using ordered_json = nlohmann::ordered_json;
 using namespace std;
 using namespace chrono;
 
+// Map of ARM 32-bit registers
+std::unordered_map<std::string, int> registerMap = {
+    {"r0", 0},   {"r1", 1},   {"r2", 2},   {"r3", 3},
+    {"r4", 4},   {"r5", 5},   {"r6", 6},   {"r7", 7},
+    {"r8", 8},   {"r9", 9},   {"r10", 10}, {"r11", 11},
+    {"r12", 12}, {"r13", 13}, {"r14", 14}, {"r15", 15},
+    {"sp", 31},  // Stack Pointer (alias for r13)
+    {"lr", 14},  // Link Register (alias for r14)
+    {"pc", 15},  // Program Counter (alias for r15)
+    {"x0", 0},   {"x1", 1},   {"x2", 2},   {"x3", 3},
+    {"x4", 4},   {"x5", 5},   {"x6", 6},   {"x7", 7},
+    {"x8", 8},   {"x9", 9},   {"x10", 10}, {"x11", 11},
+    {"x12", 12}, {"x13", 13}, {"x14", 14}, {"x15", 15},
+    {"x16", 16},   {"x17", 17},   {"x18", 18},   {"x19", 19},
+    {"x20", 20},   {"x21", 21},   {"x22", 22},   {"x23", 23},
+    {"x24", 24},   {"x25", 25},   {"x26", 26},   {"x27", 27},
+    {"x28", 28},   {"x29", 29},   {"x30", 30}
+};
+
+
 vector<int64_t> z_array;
+vector<std::string> src_reg1_array;
+vector<std::string> src_reg2_array;
+vector<std::string> dest_reg_array;
+
+vector<uint64_t> reg_val_buffer;
+vector<uint64_t> src_val1_array;
+vector<uint64_t> src_val2_array;
+vector<uint64_t> dest_val_array;
+
 int64_t input_value = 0;
 int64_t output_value = 0;
 
@@ -174,6 +203,7 @@ void process_execution_trace_file() {
         z_array.push_back(1);
       }
       ss >> reg_name >> hex_val >> int_val;
+      reg_val_buffer.push_back(int_val);
       z_array.push_back(int_val);
       if(line_number == 31) {
         z_array.push_back(0);
@@ -183,12 +213,28 @@ void process_execution_trace_file() {
       
       line_number = 100;
       ss.ignore(256, ':');
-      ss >> instruction >> dest_reg >> src_reg1;
+      ss >> instruction >> dest_reg >> src_reg1 >> src_reg2 >> immediate;
+      
       dest_reg = Polynomial::trim(dest_reg);
       dest_reg = Polynomial::removeCommas(dest_reg);
+
+      src_reg1 = Polynomial::trim(src_reg1);
+      src_reg1 = Polynomial::removeCommas(src_reg1);
+
+      src_reg2 = Polynomial::trim(src_reg2);
+      src_reg2 = Polynomial::removeCommas(src_reg2);
+      src_reg1_array.push_back(src_reg1);
+      src_reg2_array.push_back(src_reg2);
+      dest_reg_array.push_back(dest_reg);
+      src_val1_array.push_back(reg_val_buffer[registerMap[src_reg1]]);
+      src_val2_array.push_back(reg_val_buffer[registerMap[src_reg2]]);
+
+      // empty reg_val_buffer
+      reg_val_buffer.clear();
     }
     if(line_number >= 101 && line_number <= 131) {
       ss >> reg_name >> hex_val >> int_val;
+      reg_val_buffer.push_back(int_val);
       if(dest_reg == reg_name) {
         if(first_instruction) {
           input_value = z_array[line_number-100];
@@ -196,6 +242,7 @@ void process_execution_trace_file() {
         }
         output_value = int_val;
         z_array.push_back(int_val);
+        dest_val_array.push_back(int_val);
       }
     }
   }
@@ -356,24 +403,34 @@ void proofGenerator() {
 
   cout << "\n\n" << endl;
   cout << "z" << "[";
-  for(uint64_t i = 0; i < (1 + n_i + n_g); i++) {
+  for(uint64_t i = 0; i < (1 + n_i + n_g) -1; i++) {
     cout << z[i] << ", ";
   }
-  cout << "]" << endl;
+  cout << z[(1 + n_i + n_g) - 1] << "]" << endl;
 
   uint64_t t = n_i + 1;
 
   vector<vector<vector<uint64_t>>> dim;
+  size_t dest_reg_array_size = dest_reg_array.size();
+  for (size_t idx = 0; idx < dest_reg_array_size; ++idx) {
+    cout << dest_reg_array[idx] << " = " 
+        << src_reg1_array[idx] << " & " 
+        << src_reg2_array[idx] << endl;
+        
+    cout << dest_val_array[idx] << " = " 
+        << src_val1_array[idx] << " & " 
+        << src_val2_array[idx] << endl;
+  }
 
-  for(uint64_t i = 1; i<=8; i++) {
-    for(uint64_t j = 1; j <= 4; j++) {
-      
-      dim[i][j].push_back(0);
-    }
-  }
-  for(auto &i : dim) {
-    i = (i + t) % (n + 1);
-  }
+  // for(uint64_t i = 1; i<=8; i++) {
+  //   for(uint64_t j = 1; j <= 4; j++) {
+
+  //     dim[i][j].push_back(0);
+  //   }
+  // }
+  // for(auto &i : dim) {
+  //   i = (i + t) % (n + 1);
+  // }
 }
 
 
