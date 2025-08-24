@@ -263,6 +263,41 @@ void process_execution_trace_file() {
 }
 
 
+
+uint64_t subtable_search(const std::bitset<8>& inputBits) {
+    std::ifstream file("subtable/and_4bit.txt");
+    if (!file.is_open()) {
+        std::cerr << "Failed to open subtable file\n";
+        return 0;
+    }
+
+    // Convert bitset to integer
+    uint64_t input = inputBits.to_ulong();
+
+    // Split into two 4-bit nibbles
+    uint64_t inputA = (input >> 4) & 0xF; // upper 4 bits
+    uint64_t inputB = input & 0xF;        // lower 4 bits
+
+    std::string a_str, b_str, r_str;
+
+    while (file >> a_str >> b_str >> r_str) {
+        uint64_t a = std::stoi(a_str, nullptr, 2);
+        uint64_t b = std::stoi(b_str, nullptr, 2);
+        uint64_t r = std::stoi(r_str, nullptr, 2);
+
+        if (a == inputA && b == inputB) {
+            std::cout << std::bitset<4>(inputA) << " " << std::bitset<4>(inputB) << " -> "
+                      << std::bitset<4>(r_str) << endl;
+            return r;
+        }
+    }
+
+    std::cout << "No match for dim[] {" << inputA << "," << inputB << "}\n";
+    return 0;
+}
+
+
+
 void proofGenerator() {
   cout << "\n\n\n\n*** Start proof generation ***" << endl;
 
@@ -440,25 +475,114 @@ void proofGenerator() {
       for (int bit = 1; bit >= 0; bit--) { 
         indices.push_back((counter >> bit) & 1);
       }
-      dim.push_back({idx + 1, indices, combined});
+      dim.push_back({idx, indices, combined});
     }
   }
 
   // Print to verify
-    for (auto& entry : dim) {
-        std::cout << "dim[" << entry.i << "]{";
-        for (size_t j=0; j<entry.indices.size(); j++) {
-            std::cout << entry.indices[j];
-            if (j < entry.indices.size()-1) std::cout << ",";
-        }
-        std::cout << "}=" << std::bitset<8>(entry.value) << "\n";
+  for (auto& entry : dim) {
+    std::cout << "dim[" << entry.i+1 << "]{";
+    for (size_t j=0; j<entry.indices.size(); j++) {
+      std::cout << entry.indices[j];
+      if (j < entry.indices.size()-1) std::cout << ",";
     }
+    std::cout << "}=" << std::bitset<8>(entry.value) << "\n";
+  }
+
+
+  vector<uint64_t> C_dim(8, 0);
+  for (int i = 0; i < 8; i++) {
+    C_dim[i] = Polynomial::hashAndExtractLower4Bytes(((Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[0,0], p) * Polynomial::power(g, dim[i].indices[0,1], p), p) % p << 8) | (Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[1,0], p) * Polynomial::power(g, dim[i].indices[1,1], p), p) % p)), p);
+  }
+
+  for (int i = 0; i < 8; i++) {
+    cout << "C_dim[" << to_string(i+1) << "] = " << C_dim[i] << endl;
+  }
+
+
+  vector<uint64_t> random_poly = Polynomial::generateRandomPolynomial(4, 4, p);
+  uint64_t r = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(random_poly, 4, p), p) % 2;
+
+  uint64_t w = 32;
+  uint64_t c = 8;
+  uint64_t s = 4;
+  uint64_t alpha = 8;
+
+  std::vector<DimEntry> E;
+  E.reserve(8 * 4); // 8 is the number of registers devided, 4 is placeholders for m
+
+  for (int idx = 0; idx < 8; idx++) {
+    for (int counter = 0; counter < 4; counter++) {
+      std::vector<bool> indices;
+      uint8_t nibbleD = (dest_val_array[counter] >> (4 * idx)) & 0xF;
+      for (int bit = 1; bit >= 0; bit--) { 
+        indices.push_back((counter >> bit) & 1);
+      }
+      E.push_back({idx, indices, nibbleD});
+    }
+  }
+  // Print to verify
+  for (auto& entry : E) {
+    std::cout << "E[" << entry.i+1 << "]{";
+    for (size_t j=0; j<entry.indices.size(); j++) {
+      std::cout << entry.indices[j];
+      if (j < entry.indices.size()-1) std::cout << ",";
+    }
+    std::cout << "}=" << std::bitset<4>(entry.value) << "\n";
+  }
+
+  vector<uint64_t> C_E(8, 0);
+  for (int i = 0; i < 8; i++) {
+    C_E[i] = Polynomial::hashAndExtractLower4Bytes(((Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[0,0], p) * Polynomial::power(g, dim[i].indices[0,1], p), p) % p << 8) | (Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[1,0], p) * Polynomial::power(g, dim[i].indices[1,1], p), p) % p)), p);
+  }
+
+  for (int i = 0; i < 8; i++) {
+    cout << "C_E[" << to_string(i+1) << "] = " << C_E[i] << endl;
+  }
+
+
+  uint64_t v = 0;
+
+  // for (auto& entry : dim) {
+  //   std::cout << "dim[" << entry.i+1 << "]{";
+  //   for (size_t j=0; j<entry.indices.size(); j++) {
+  //     std::cout << entry.indices[j];
+  //     if (j < entry.indices.size()-1) std::cout << ",";
+  //   }
+  //   std::cout << "}=" << std::bitset<8>(entry.value) << "\n";
+  // }
+  for (auto& entry : dim) {
+    if (entry.indices[0] == 1 && entry.indices[1] == 0) {
+      cout << "dim[" << entry.i << "]{1,0} = "
+          << std::bitset<8>(entry.value) << endl;
+
+      uint64_t v_buffer = (Polynomial::power(2, entry.i, p) *
+                          subtable_search(std::bitset<8>(entry.value))) % p;
+      v = (v + v_buffer) % p;
+    }
+  }
+  cout << "v = " << v << endl;
+
+  uint64_t h1_x1 = 0;
+
+  for (auto& entry : E) {
+    if (entry.indices[0] == 1 && entry.indices[1] == 0) {
+      cout << "E[" << entry.i << "]{1,0} = "
+          << std::bitset<8>(entry.value) << endl;
+    }
+  }
+  cout << "h1_x1 = " << h1_x1 << endl;
 }
 
+void verifyProof() {
+  
+
+}
 
 int main(int argc, char* argv[]) {
   run_the_user_program(argc, argv);
   process_execution_trace_file();
   proofGenerator();
+  verifyProof();
   return 0;
 }
