@@ -463,6 +463,8 @@ void proofGenerator() {
         << src_val2_array[idx] << endl;
   }
 
+
+  // Setep 2
   std::vector<DimEntry> dim;
   dim.reserve(8 * 4); // 8 is the number of registers devided, 4 is placeholders for m
 
@@ -490,19 +492,21 @@ void proofGenerator() {
   }
 
 
-  vector<uint64_t> C_dim(8, 0);
-  for (int i = 0; i < 8; i++) {
-    C_dim[i] = Polynomial::hashAndExtractLower4Bytes(((Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[0,0], p) * Polynomial::power(g, dim[i].indices[0,1], p), p) % p << 8) | (Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[1,0], p) * Polynomial::power(g, dim[i].indices[1,1], p), p) % p)), p);
-  }
+  // vector<uint64_t> C_dim(8, 0);
+  // for (int i = 0; i < 8; i++) {
+  //   C_dim[i] = Polynomial::hashAndExtractLower4Bytes(((Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[0,0], p) * Polynomial::power(g, dim[i].indices[0,1], p), p) % p << 8) | (Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[1,0], p) * Polynomial::power(g, dim[i].indices[1,1], p), p) % p)), p);
+  // }
 
-  for (int i = 0; i < 8; i++) {
-    cout << "C_dim[" << to_string(i+1) << "] = " << C_dim[i] << endl;
-  }
+  // for (int i = 0; i < 8; i++) {
+  //   cout << "C_dim[" << to_string(i+1) << "] = " << C_dim[i] << endl;
+  // }
 
 
+  // Step 3
   vector<uint64_t> random_poly = Polynomial::generateRandomPolynomial(4, 4, p);
   uint64_t r = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(random_poly, 4, p), p) % 2;
 
+  // Step 4
   uint64_t w = 32;
   uint64_t c = 8;
   uint64_t s = 4;
@@ -531,16 +535,17 @@ void proofGenerator() {
     std::cout << "}=" << std::bitset<4>(entry.value) << "\n";
   }
 
-  vector<uint64_t> C_E(8, 0);
-  for (int i = 0; i < 8; i++) {
-    C_E[i] = Polynomial::hashAndExtractLower4Bytes(((Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[0,0], p) * Polynomial::power(g, dim[i].indices[0,1], p), p) % p << 8) | (Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[1,0], p) * Polynomial::power(g, dim[i].indices[1,1], p), p) % p)), p);
-  }
+  // vector<uint64_t> C_E(8, 0);
+  // for (int i = 0; i < 8; i++) {
+  //   C_E[i] = Polynomial::hashAndExtractLower4Bytes(((Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[0,0], p) * Polynomial::power(g, dim[i].indices[0,1], p), p) % p << 8) | (Polynomial::hashAndExtractLower4Bytes(Polynomial::power(g, dim[i].indices[1,0], p) * Polynomial::power(g, dim[i].indices[1,1], p), p) % p)), p);
+  // }
 
-  for (int i = 0; i < 8; i++) {
-    cout << "C_E[" << to_string(i+1) << "] = " << C_E[i] << endl;
-  }
+  // for (int i = 0; i < 8; i++) {
+  //   cout << "C_E[" << to_string(i+1) << "] = " << C_E[i] << endl;
+  // }
 
 
+  // Step 5
   uint64_t v = 0;
 
   // for (auto& entry : dim) {

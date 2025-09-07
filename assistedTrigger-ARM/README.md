@@ -29,10 +29,10 @@ int main() {
 ```
 Save it as YOUR_PROGRAM.cpp and generate the assembly file:
 ```
-g++ -std=c++17 -S YOUR_PROGRAM.cpp -o YOUR_PROGRAM.s -lstdc++
+g++ -std=c++17 -S program.cpp -o program.s -lstdc++
 ```
 ### Step 1.2: Find the Instruction Line
-Open `YOUR_PROGRAM.s` and locate the first supported instruction line (like `mul` or `add`) after the `#APP` directive. This line number will be used to define the `code_block` in the device configuration.
+Open `program.s` and locate the first supported instruction line (like `mul` or `add`) after the `#APP` directive. This line number will be used to define the `code_block` in the device configuration.
 
 ### Step 1.3: Update the `device_config.json` File
 ```
@@ -55,14 +55,14 @@ Open `YOUR_PROGRAM.s` and locate the first supported instruction line (like `mul
 * **`code_block`**: Line range in the assembly where the critical operations occur.
 
 ### Step 1.4: Run the Commitment Generator
-Ensure `YOUR_PROGRAM.s`, the `data` folder, `Class.json`, `device_config.json` and the `commitmentGenerator` binary are in the same directory:
+Ensure `program.s`, the `data` folder, `Class.json`, `device_config.json` and the `commitmentGenerator` binary are in the same directory:
 ```
-./commitmentGenerator YOUR_PROGRAM.s
+./commitmentGenerator program.s
 ```
 ### Step 1.5: Build an Executable from the Updated Assembly
-After `commitmentGenerator` generates `program_new.s`, compile it into an executable:
+After `commitmentGenerator` generates `program_AddedFidesProofGen.s`, compile it into an executable:
 ```
-g++ -std=c++17 program_new.s lib/polynomial.cpp -o program -lstdc++ -g
+g++ -std=c++17 program_AddedFidesProofGen.s lib/polynomial.cpp -o program -lstdc++ -g
 ```
 ## 2. Generate Zero-Knowledge Proof
 ### Step 2.1: Compile the Proof Generator

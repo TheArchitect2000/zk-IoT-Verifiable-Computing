@@ -1,19 +1,19 @@
 x0             0x1                 1
-x1             0xffffffffee88      281474976706184
-x2             0xffffffffee98      281474976706200
+x1             0xffffffffee68      281474976706152
+x2             0xffffffffee78      281474976706168
 x3             0xaaaaaaaa1ed8      187649984437976
 x4             0xfffff7feec40      281474842422336
-x5             0x5678576da62e0348  6230826212918166344
+x5             0x7e012db86f4a6075  9079588593920008309
 x6             0x0                 0
 x7             0xfffff7f15000      281474841530368
 x8             0xfffff7c30ab0      281474838497968
-x9             0x2f3d535341504b53  3403968510405135187
+x9             0x656d6f682f3d5353  7308620263552013139
 x10            0x0                 0
 x11            0x0                 0
 x12            0xfffff7ff6170      281474842452336
 x13            0x3d                61
 x14            0x34e6b4            3466932
-x15            0x28                40
+x15            0x8                 8
 x16            0xfffff7c2fd68      281474838494568
 x17            0x3                 3
 x18            0x8                 8
@@ -21,36 +21,36 @@ x19            0xf                 15
 x20            0x2                 2
 x21            0x6                 6
 x22            0xaaaaaaaa1ed8      187649984437976
-x23            0xffffffffee98      281474976706200
+x23            0xffffffffee78      281474976706168
 x24            0xfffff7ffdb58      281474842483544
 x25            0x0                 0
 x26            0xfffff7ffe000      281474842484736
 x27            0xaaaaaaacfbc0      187649984625600
 x28            0x0                 0
-x29            0xffffffffee10      281474976706064
+x29            0xffffffffedf0      281474976706032
 x30            0xfffff7aa84c4      281474836890820
-sp             0xffffffffed10      0xffffffffed10
+sp             0xffffffffecf0      0xffffffffecf0
 pc             0xaaaaaaaa1ef0      0xaaaaaaaa1ef0 <main+24>
 cpsr           0x60201000          [ EL=0 BTYPE=0 SSBS SS C Z ]
 fpsr           0x0                 [ ]
 fpcr           0x0                 [ Len=0 Stride=0 RMode=0 ]
 => 0xaaaaaaaa1ef0 <main+24>:	and	x17, x18, x19
 x0             0x1                 1
-x1             0xffffffffee88      281474976706184
-x2             0xffffffffee98      281474976706200
+x1             0xffffffffee68      281474976706152
+x2             0xffffffffee78      281474976706168
 x3             0xaaaaaaaa1ed8      187649984437976
 x4             0xfffff7feec40      281474842422336
-x5             0x5678576da62e0348  6230826212918166344
+x5             0x7e012db86f4a6075  9079588593920008309
 x6             0x0                 0
 x7             0xfffff7f15000      281474841530368
 x8             0xfffff7c30ab0      281474838497968
-x9             0x2f3d535341504b53  3403968510405135187
+x9             0x656d6f682f3d5353  7308620263552013139
 x10            0x0                 0
 x11            0x0                 0
 x12            0xfffff7ff6170      281474842452336
 x13            0x3d                61
 x14            0x34e6b4            3466932
-x15            0x28                40
+x15            0x8                 8
 x16            0xfffff7c2fd68      281474838494568
 x17            0x8                 8
 x18            0x8                 8
@@ -58,15 +58,15 @@ x19            0xf                 15
 x20            0x2                 2
 x21            0x6                 6
 x22            0xaaaaaaaa1ed8      187649984437976
-x23            0xffffffffee98      281474976706200
+x23            0xffffffffee78      281474976706168
 x24            0xfffff7ffdb58      281474842483544
 x25            0x0                 0
 x26            0xfffff7ffe000      281474842484736
 x27            0xaaaaaaacfbc0      187649984625600
 x28            0x0                 0
-x29            0xffffffffee10      281474976706064
+x29            0xffffffffedf0      281474976706032
 x30            0xfffff7aa84c4      281474836890820
-sp             0xffffffffed10      0xffffffffed10
+sp             0xffffffffecf0      0xffffffffecf0
 pc             0xaaaaaaaa1ef4      0xaaaaaaaa1ef4 <main+28>
 cpsr           0x60201000          [ EL=0 BTYPE=0 SSBS SS C Z ]
 fpsr           0x0                 [ ]
@@ -74,21 +74,21 @@ fpcr           0x0                 [ Len=0 Stride=0 RMode=0 ]
 -----------------------------------------------------
 => 0xaaaaaaaa1ef4 <main+28>:	and	x18, x19, x20
 x0             0x1                 1
-x1             0xffffffffee88      281474976706184
-x2             0xffffffffee98      281474976706200
+x1             0xffffffffee68      281474976706152
+x2             0xffffffffee78      281474976706168
 x3             0xaaaaaaaa1ed8      187649984437976
 x4             0xfffff7feec40      281474842422336
-x5             0x5678576da62e0348  6230826212918166344
+x5             0x7e012db86f4a6075  9079588593920008309
 x6             0x0                 0
 x7             0xfffff7f15000      281474841530368
 x8             0xfffff7c30ab0      281474838497968
-x9             0x2f3d535341504b53  3403968510405135187
+x9             0x656d6f682f3d5353  7308620263552013139
 x10            0x0                 0
 x11            0x0                 0
 x12            0xfffff7ff6170      281474842452336
 x13            0x3d                61
 x14            0x34e6b4            3466932
-x15            0x28                40
+x15            0x8                 8
 x16            0xfffff7c2fd68      281474838494568
 x17            0x8                 8
 x18            0x2                 2
@@ -96,15 +96,15 @@ x19            0xf                 15
 x20            0x2                 2
 x21            0x6                 6
 x22            0xaaaaaaaa1ed8      187649984437976
-x23            0xffffffffee98      281474976706200
+x23            0xffffffffee78      281474976706168
 x24            0xfffff7ffdb58      281474842483544
 x25            0x0                 0
 x26            0xfffff7ffe000      281474842484736
 x27            0xaaaaaaacfbc0      187649984625600
 x28            0x0                 0
-x29            0xffffffffee10      281474976706064
+x29            0xffffffffedf0      281474976706032
 x30            0xfffff7aa84c4      281474836890820
-sp             0xffffffffed10      0xffffffffed10
+sp             0xffffffffecf0      0xffffffffecf0
 pc             0xaaaaaaaa1ef8      0xaaaaaaaa1ef8 <main+32>
 cpsr           0x60201000          [ EL=0 BTYPE=0 SSBS SS C Z ]
 fpsr           0x0                 [ ]
@@ -112,21 +112,21 @@ fpcr           0x0                 [ Len=0 Stride=0 RMode=0 ]
 -----------------------------------------------------
 => 0xaaaaaaaa1ef8 <main+32>:	and	x19, x17, x21
 x0             0x1                 1
-x1             0xffffffffee88      281474976706184
-x2             0xffffffffee98      281474976706200
+x1             0xffffffffee68      281474976706152
+x2             0xffffffffee78      281474976706168
 x3             0xaaaaaaaa1ed8      187649984437976
 x4             0xfffff7feec40      281474842422336
-x5             0x5678576da62e0348  6230826212918166344
+x5             0x7e012db86f4a6075  9079588593920008309
 x6             0x0                 0
 x7             0xfffff7f15000      281474841530368
 x8             0xfffff7c30ab0      281474838497968
-x9             0x2f3d535341504b53  3403968510405135187
+x9             0x656d6f682f3d5353  7308620263552013139
 x10            0x0                 0
 x11            0x0                 0
 x12            0xfffff7ff6170      281474842452336
 x13            0x3d                61
 x14            0x34e6b4            3466932
-x15            0x28                40
+x15            0x8                 8
 x16            0xfffff7c2fd68      281474838494568
 x17            0x8                 8
 x18            0x2                 2
@@ -134,15 +134,15 @@ x19            0x0                 0
 x20            0x2                 2
 x21            0x6                 6
 x22            0xaaaaaaaa1ed8      187649984437976
-x23            0xffffffffee98      281474976706200
+x23            0xffffffffee78      281474976706168
 x24            0xfffff7ffdb58      281474842483544
 x25            0x0                 0
 x26            0xfffff7ffe000      281474842484736
 x27            0xaaaaaaacfbc0      187649984625600
 x28            0x0                 0
-x29            0xffffffffee10      281474976706064
+x29            0xffffffffedf0      281474976706032
 x30            0xfffff7aa84c4      281474836890820
-sp             0xffffffffed10      0xffffffffed10
+sp             0xffffffffecf0      0xffffffffecf0
 pc             0xaaaaaaaa1efc      0xaaaaaaaa1efc <main+36>
 cpsr           0x60201000          [ EL=0 BTYPE=0 SSBS SS C Z ]
 fpsr           0x0                 [ ]
@@ -150,21 +150,21 @@ fpcr           0x0                 [ Len=0 Stride=0 RMode=0 ]
 -----------------------------------------------------
 => 0xaaaaaaaa1efc <main+36>:	and	x20, x18, x21
 x0             0x1                 1
-x1             0xffffffffee88      281474976706184
-x2             0xffffffffee98      281474976706200
+x1             0xffffffffee68      281474976706152
+x2             0xffffffffee78      281474976706168
 x3             0xaaaaaaaa1ed8      187649984437976
 x4             0xfffff7feec40      281474842422336
-x5             0x5678576da62e0348  6230826212918166344
+x5             0x7e012db86f4a6075  9079588593920008309
 x6             0x0                 0
 x7             0xfffff7f15000      281474841530368
 x8             0xfffff7c30ab0      281474838497968
-x9             0x2f3d535341504b53  3403968510405135187
+x9             0x656d6f682f3d5353  7308620263552013139
 x10            0x0                 0
 x11            0x0                 0
 x12            0xfffff7ff6170      281474842452336
 x13            0x3d                61
 x14            0x34e6b4            3466932
-x15            0x28                40
+x15            0x8                 8
 x16            0xfffff7c2fd68      281474838494568
 x17            0x8                 8
 x18            0x2                 2
@@ -172,15 +172,15 @@ x19            0x0                 0
 x20            0x2                 2
 x21            0x6                 6
 x22            0xaaaaaaaa1ed8      187649984437976
-x23            0xffffffffee98      281474976706200
+x23            0xffffffffee78      281474976706168
 x24            0xfffff7ffdb58      281474842483544
 x25            0x0                 0
 x26            0xfffff7ffe000      281474842484736
 x27            0xaaaaaaacfbc0      187649984625600
 x28            0x0                 0
-x29            0xffffffffee10      281474976706064
+x29            0xffffffffedf0      281474976706032
 x30            0xfffff7aa84c4      281474836890820
-sp             0xffffffffed10      0xffffffffed10
+sp             0xffffffffecf0      0xffffffffecf0
 pc             0xaaaaaaaa1f00      0xaaaaaaaa1f00 <main+40>
 cpsr           0x60201000          [ EL=0 BTYPE=0 SSBS SS C Z ]
 fpsr           0x0                 [ ]
