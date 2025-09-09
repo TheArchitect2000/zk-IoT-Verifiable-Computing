@@ -3,7 +3,7 @@ x1             0xffffffffeea8      281474976706216
 x2             0xffffffffeeb8      281474976706232
 x3             0xaaaaaaaa1ed8      187649984437976
 x4             0xfffff7feec40      281474842422336
-x5             0x1e05e3de7e0d151d  2163385740758422813
+x5             0x65a3d444fc30bf9c  7323930811788476316
 x6             0x0                 0
 x7             0xfffff7f15000      281474841530368
 x8             0xfffff7c30ab0      281474838497968
@@ -34,13 +34,13 @@ pc             0xaaaaaaaa1ee4      0xaaaaaaaa1ee4 <main+12>
 cpsr           0x60201000          [ EL=0 BTYPE=0 SSBS SS C Z ]
 fpsr           0x0                 [ ]
 fpcr           0x0                 [ Len=0 Stride=0 RMode=0 ]
-=> 0xaaaaaaaa1ee4 <main+12>:	mul	x17, x17, x18
+=> 0xaaaaaaaa1ee4 <main+12>:	add	x17, x17, x18
 x0             0x1                 1
 x1             0xffffffffeea8      281474976706216
 x2             0xffffffffeeb8      281474976706232
 x3             0xaaaaaaaa1ed8      187649984437976
 x4             0xfffff7feec40      281474842422336
-x5             0x1e05e3de7e0d151d  2163385740758422813
+x5             0x65a3d444fc30bf9c  7323930811788476316
 x6             0x0                 0
 x7             0xfffff7f15000      281474841530368
 x8             0xfffff7c30ab0      281474838497968
@@ -52,7 +52,7 @@ x13            0x3d                61
 x14            0x34e6b4            3466932
 x15            0xfffff7f16620      281474841536032
 x16            0xfffff7c2fd68      281474838494568
-x17            0xf87               3975
+x17            0xb8                184
 x18            0x19                25
 x19            0xffffffffeea8      281474976706216
 x20            0x1                 1
@@ -72,13 +72,13 @@ cpsr           0x60201000          [ EL=0 BTYPE=0 SSBS SS C Z ]
 fpsr           0x0                 [ ]
 fpcr           0x0                 [ Len=0 Stride=0 RMode=0 ]
 -----------------------------------------------------
-=> 0xaaaaaaaa1ee8 <main+16>:	sub	x17, x17, x18
+=> 0xaaaaaaaa1ee8 <main+16>:	add	x17, x17, x18
 x0             0x1                 1
 x1             0xffffffffeea8      281474976706216
 x2             0xffffffffeeb8      281474976706232
 x3             0xaaaaaaaa1ed8      187649984437976
 x4             0xfffff7feec40      281474842422336
-x5             0x1e05e3de7e0d151d  2163385740758422813
+x5             0x65a3d444fc30bf9c  7323930811788476316
 x6             0x0                 0
 x7             0xfffff7f15000      281474841530368
 x8             0xfffff7c30ab0      281474838497968
@@ -90,7 +90,7 @@ x13            0x3d                61
 x14            0x34e6b4            3466932
 x15            0xfffff7f16620      281474841536032
 x16            0xfffff7c2fd68      281474838494568
-x17            0xf6e               3950
+x17            0xd1                209
 x18            0x19                25
 x19            0xffffffffeea8      281474976706216
 x20            0x1                 1
@@ -116,7 +116,7 @@ x1             0xffffffffeea8      281474976706216
 x2             0xffffffffeeb8      281474976706232
 x3             0xaaaaaaaa1ed8      187649984437976
 x4             0xfffff7feec40      281474842422336
-x5             0x1e05e3de7e0d151d  2163385740758422813
+x5             0x65a3d444fc30bf9c  7323930811788476316
 x6             0x0                 0
 x7             0xfffff7f15000      281474841530368
 x8             0xfffff7c30ab0      281474838497968
@@ -128,7 +128,7 @@ x13            0x3d                61
 x14            0x34e6b4            3466932
 x15            0xfffff7f16620      281474841536032
 x16            0xfffff7c2fd68      281474838494568
-x17            0xf87               3975
+x17            0xea                234
 x18            0x19                25
 x19            0xffffffffeea8      281474976706216
 x20            0x1                 1
@@ -148,13 +148,13 @@ cpsr           0x60201000          [ EL=0 BTYPE=0 SSBS SS C Z ]
 fpsr           0x0                 [ ]
 fpcr           0x0                 [ Len=0 Stride=0 RMode=0 ]
 -----------------------------------------------------
-=> 0xaaaaaaaa1ef0 <main+24>:	udiv	x17, x17, x18
+=> 0xaaaaaaaa1ef0 <main+24>:	add	x17, x17, x18
 x0             0x1                 1
 x1             0xffffffffeea8      281474976706216
 x2             0xffffffffeeb8      281474976706232
 x3             0xaaaaaaaa1ed8      187649984437976
 x4             0xfffff7feec40      281474842422336
-x5             0x1e05e3de7e0d151d  2163385740758422813
+x5             0x65a3d444fc30bf9c  7323930811788476316
 x6             0x0                 0
 x7             0xfffff7f15000      281474841530368
 x8             0xfffff7c30ab0      281474838497968
@@ -166,7 +166,7 @@ x13            0x3d                61
 x14            0x34e6b4            3466932
 x15            0xfffff7f16620      281474841536032
 x16            0xfffff7c2fd68      281474838494568
-x17            0x9f                159
+x17            0x103               259
 x18            0x19                25
 x19            0xffffffffeea8      281474976706216
 x20            0x1                 1

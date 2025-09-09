@@ -13,10 +13,10 @@ main:
 mov x17, #159
 .global zkp_start
 zkp_start: nop
-mul x17, x17, x18
-sub x17, x17, x18
 add x17, x17, x18
-udiv x17, x17, x18
+add x17, x17, x18
+add x17, x17, x18
+add x17, x17, x18
 .global zkp_end
 zkp_end: nop
 

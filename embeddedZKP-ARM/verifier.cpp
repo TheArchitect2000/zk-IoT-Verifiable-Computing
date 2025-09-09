@@ -28,8 +28,8 @@ void verifier() {
   bool verify = false;
 
   /*******************************  Read Commitment  ******************************/
-  cout << "openning data/program_commitment.json" << endl;
-  std::ifstream commitmentFileStream("data/program_commitment.json");
+  cout << "openning program_commitment.json" << endl;
+  std::ifstream commitmentFileStream("program_commitment.json");
   if (!commitmentFileStream.is_open()) {
       std::cerr << "Could not open the file!" << std::endl;
   }
@@ -47,6 +47,16 @@ void verifier() {
   vector<uint64_t> rowC_x = commitmentJsonData["row_AHP_C"].get<vector<uint64_t>>();
   vector<uint64_t> colC_x = commitmentJsonData["col_AHP_C"].get<vector<uint64_t>>();
   vector<uint64_t> valC_x = commitmentJsonData["val_AHP_C"].get<vector<uint64_t>>();
+  
+  uint64_t Com0_AHP = commitmentJsonData["Com_AHP0"].get<uint64_t>();
+  uint64_t Com1_AHP = commitmentJsonData["Com_AHP1"].get<uint64_t>();
+  uint64_t Com2_AHP = commitmentJsonData["Com_AHP2"].get<uint64_t>();
+  uint64_t Com3_AHP = commitmentJsonData["Com_AHP3"].get<uint64_t>();
+  uint64_t Com4_AHP = commitmentJsonData["Com_AHP4"].get<uint64_t>();
+  uint64_t Com5_AHP = commitmentJsonData["Com_AHP5"].get<uint64_t>();
+  uint64_t Com6_AHP = commitmentJsonData["Com_AHP6"].get<uint64_t>();
+  uint64_t Com7_AHP = commitmentJsonData["Com_AHP7"].get<uint64_t>();
+  uint64_t Com8_AHP = commitmentJsonData["Com_AHP8"].get<uint64_t>();
   /*******************************  Read Commitment  ******************************/
 
 
@@ -107,6 +117,9 @@ void verifier() {
   uint64_t Com11_AHP_x = proofJsonData["Com_AHP11_x"].get<uint64_t>();
   uint64_t Com12_AHP_x = proofJsonData["Com_AHP12_x"].get<uint64_t>();
   uint64_t Com13_AHP_x = proofJsonData["Com_AHP13_x"].get<uint64_t>();
+  
+  // uint64_t input_value = proofJsonData["input"].get<uint64_t>();
+  // uint64_t output_value = proofJsonData["output"].get<uint64_t>();
   // uint64_t ComP_AHP_x = proofJsonData["ComP_AHP_x"].get<uint64_t>();
   // string curve = proofJsonData["curve"];
   // string protocol = proofJsonData["protocol"];
@@ -152,18 +165,30 @@ void verifier() {
   uint64_t beta2 = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 9, p), p);
   uint64_t beta3 = Polynomial::generateRandomNumber({0}, 1000);
 
-  uint64_t eta_w_hat = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 10, p), p);
-  uint64_t eta_z_hatA = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 11, p), p);
-  uint64_t eta_z_hatB = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 12, p), p);
-  uint64_t eta_z_hatC = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 13, p), p);
-  uint64_t eta_h_0_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 14, p), p);
-  uint64_t eta_s_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 15, p), p);
-  uint64_t eta_g_1_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 16, p), p);
-  uint64_t eta_h_1_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 17, p), p);
-  uint64_t eta_g_2_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 18, p), p);
-  uint64_t eta_h_2_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 19, p), p);
-  uint64_t eta_g_3_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 20, p), p);
-  uint64_t eta_h_3_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 21, p), p);
+  uint64_t eta_row_ahp_a = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 10, p), p);
+  uint64_t eta_col_ahp_a = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 11, p), p);
+  uint64_t eta_val_ahp_a = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 12, p), p);
+
+  uint64_t eta_row_ahp_b = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 13, p), p);
+  uint64_t eta_col_ahp_b = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 14, p), p);
+  uint64_t eta_val_ahp_b = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 15, p), p);
+
+  uint64_t eta_row_ahp_c = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 16, p), p);
+  uint64_t eta_col_ahp_c = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 17, p), p);
+  uint64_t eta_val_ahp_c = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 18, p), p);
+
+  uint64_t eta_w_hat = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 19, p), p);
+  uint64_t eta_z_hatA = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 20, p), p);
+  uint64_t eta_z_hatB = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 21, p), p);
+  uint64_t eta_z_hatC = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 22, p), p);
+  uint64_t eta_h_0_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 23, p), p);
+  uint64_t eta_s_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 24, p), p);
+  uint64_t eta_g_1_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 25, p), p);
+  uint64_t eta_h_1_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 26, p), p);
+  uint64_t eta_g_2_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 27, p), p);
+  uint64_t eta_h_2_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 28, p), p);
+  uint64_t eta_g_3_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 29, p), p);
+  uint64_t eta_h_3_x = Polynomial::hashAndExtractLower4Bytes(Polynomial::evaluatePolynomial(s_x, 30, p), p);
 
 
 
@@ -184,6 +209,10 @@ void verifier() {
   for (int64_t i = 1; i < n; i++) {
     H.push_back(Polynomial::power(w, i, p));
   }
+
+  uint64_t y_output = Polynomial::evaluatePolynomial(z_hatC, H[n-1], p);
+  // cout << "y = " << y_output << endl;
+
 
   vector<uint64_t> vH_x(n + 1, 0);
   vH_x[0] = p - 1;
@@ -265,9 +294,29 @@ void verifier() {
         p),
       p);
       
-  uint64_t ComP_AHP_x = ((Com2_AHP_x * eta_w_hat) % p + ((Com3_AHP_x * eta_z_hatA) % p + ((Com4_AHP_x * eta_z_hatB) % p + ((Com5_AHP_x * eta_z_hatC) % p + ((Com6_AHP_x * eta_h_0_x) % p + ((Com7_AHP_x * eta_s_x) % p + ((Com8_AHP_x * eta_g_1_x) % p + ((Com9_AHP_x * eta_h_1_x) % p + ((Com10_AHP_x * eta_g_2_x) % p + ((Com11_AHP_x * eta_h_2_x) % p + ((Com12_AHP_x * eta_g_3_x) % p + (Com13_AHP_x * eta_h_3_x) % p) % p) %p) % p) % p) % p) % p) % p) % p) % p) % p) % p;
+  uint64_t ComP_AHP_x = 
+  ((Com0_AHP * eta_row_ahp_a) % p + 
+  ((Com1_AHP * eta_col_ahp_a) % p + 
+  ((Com2_AHP * eta_val_ahp_a) % p + 
+  ((Com3_AHP * eta_row_ahp_b) % p + 
+  ((Com4_AHP * eta_col_ahp_b) % p + 
+  ((Com5_AHP * eta_val_ahp_b) % p + 
+  ((Com6_AHP * eta_row_ahp_c) % p + 
+  ((Com7_AHP * eta_col_ahp_c) % p + 
+  ((Com8_AHP * eta_val_ahp_c) % p + 
+  ((Com2_AHP_x * eta_w_hat) % p + 
+  ((Com3_AHP_x * eta_z_hatA) % p + 
+  ((Com4_AHP_x * eta_z_hatB) % p + 
+  ((Com5_AHP_x * eta_z_hatC) % p + 
+  ((Com6_AHP_x * eta_h_0_x) % p + 
+  ((Com7_AHP_x * eta_s_x) % p + 
+  ((Com8_AHP_x * eta_g_1_x) % p + 
+  ((Com9_AHP_x * eta_h_1_x) % p + 
+  ((Com10_AHP_x * eta_g_2_x) % p + 
+  ((Com11_AHP_x * eta_h_2_x) % p + 
+  ((Com12_AHP_x * eta_g_3_x) % p + 
+  (Com13_AHP_x * eta_h_3_x) % p) % p) %p) % p) % p) % p) % p) % p) % p) % p) % p) %p) % p) % p) % p) % p) % p) % p) % p) % p) % p;
   cout << "ComP_AHP_x = " << ComP_AHP_x << endl;
-  
 
   Polynomial::printPolynomial(a_x, "a_x");
   Polynomial::printPolynomial(b_x, "b_x");
@@ -301,6 +350,7 @@ void verifier() {
   uint64_t eq52 = Polynomial::e_func(p_17_AHP, eq52BufP2, g, p);
   cout << eq51 << " = " << eq52 << endl;
 
+  // if (eq11 == eq12 && eq21 == eq22 && eq31 == eq32 && eq41 == eq42 && eq51 == eq52 && output_value == y_output) {
   if (eq11 == eq12 && eq21 == eq22 && eq31 == eq32 && eq41 == eq42 && eq51 == eq52) {
     verify = true;
   }

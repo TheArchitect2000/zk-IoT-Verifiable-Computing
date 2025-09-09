@@ -11,10 +11,10 @@ main:
 // 16 "program.cpp" 1
 	mov x18, #25
 mov x17, #159
-mul x17, x17, x18
-sub x17, x17, x18
 add x17, x17, x18
-udiv x17, x17, x18
+add x17, x17, x18
+add x17, x17, x18
+add x17, x17, x18
 
 // 0 "" 2
 #NO_APP
