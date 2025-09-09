@@ -130,7 +130,7 @@ Update the following parameter:
 ```
 
 - The project root path has a sample program, `program.cpp`. The commitment will be generated for this program.
-- Execute the wizardry.sh script to generate a commitment.
+- Execute the wizardry.sh script and choose option _1_ to generate a commitment.
 ```
 ./wizardry.sh
 ```
@@ -139,7 +139,7 @@ You can find the commitment at `program_commitment.json`
   
 # 🚩 Step 3: Proof Generation
 In this step, you should generate proofs by running the program on IOT2050 and submit the Proof to the Fides Innova public network.
-- For this demo, you can use `wizardry.sh` script and choose option 3 to execute the program.
+- For this demo, you can use `wizardry.sh` script and choose option _2_ to execute the program.
 ```
 ./wizardry.sh
 ```
@@ -147,6 +147,7 @@ In this step, you should generate proofs by running the program on IOT2050 and s
 # 🌐 Step 4: Browsing the Commitment and Verifying the Proofs
 To verify the execution of the program, you have two options:
 #### **Local Verification**: Use the locally available `verifier` tool.
+- For this demo, you can use `wizardry.sh` script and choose option _3_ to verify the proof.
 ```
 ./wizardry.sh
 ```
@@ -154,6 +155,8 @@ or
 ```
 ./verifier
 ```
+
+<!--
 #### **Fides Innova Blockchain Explorer Verification**: Submit your proof on the blockchain, then use the Fides Innova Blockchain Explorer to verify the submitted `proof.json`.
 
 1. **Access the Fides Innova Explorer:**  
@@ -180,3 +183,4 @@ At the transaction location, click the ` ⋮ ` and select "Verify Proof" from th
 <p align="center">
   <img src="docs/images/3.png" />
 </p>
+-->
