@@ -10,7 +10,7 @@ This guide explains how to generate a commitment, create a zero-knowledge proof 
 
 ## 1. Generate Commitment
 ### Step 1: Compile the Commitment Generator
-Compile your code based on your operating system.
+Execute the following command to generate a _commitmentGenerator_ executable file on your machine.
 ```
 g++ -std=c++17 commitmentGenerator.cpp lib/polynomial.cpp -o commitmentGenerator -lstdc++
 ```
