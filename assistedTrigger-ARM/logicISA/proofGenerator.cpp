@@ -13,6 +13,9 @@
 // limitations under the License.
 
 
+// To compile: g++ -std=c++17 proofGenerator.cpp lib/polynomial.cpp -o proofGenerator -lstdc++
+// To run: ./proofGenerator ./program_AND
+
 #include "../lib/fidesinnova.h"
 #include <iostream>
 #include <fstream>
@@ -52,7 +55,7 @@ std::unordered_map<std::string, int> registerMap = {
 
 struct DimEntry {
     int i;        // index (1..8)
-    std::vector<bool> indices; // flexible indices
+    std::vector<uint64_t> indices; // flexible indices
     uint8_t value; // 8-bit interleaved nibble pair
 };
 
@@ -481,7 +484,7 @@ void proofGenerator() {
     }
   }
 
-  // Print to verify
+  // Print the dim array
   for (auto& entry : dim) {
     std::cout << "dim[" << entry.i+1 << "]{";
     for (size_t j=0; j<entry.indices.size(); j++) {
