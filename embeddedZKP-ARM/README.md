@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="https://fidesinnova.io/" target="blank"><img src="docs/images/g-c-web-back.png" /></a>
+  <a href="https://Fides Innova.io/" target="blank"><img src="docs/images/g-c-web-back.png" /></a>
 </p>
 
 
 # 🚀 Applying zk-IoT on Siemens SIMATIC IOT2050
 
-This guide explains how to integrate **zk-IoT** with the **Siemens SIMATIC IOT2050** using the **FidesInnova** platform. The process involves device registration, commitment generation, proof submission, and verification on the blockchain.
-## Verifiable Computing Steps
+This guide explains how to integrate **zk-IoT** with the **Siemens SIMATIC IOT2050** using the **Fides Innova** platform. The process involves device registration, commitment generation, proof submission, and verification on the blockchain.
+<!-- ## Verifiable Computing Steps
 ### First approach
 <p align="center">
   <img src="docs/images/Process1.png" />
@@ -16,28 +16,31 @@ This guide explains how to integrate **zk-IoT** with the **Siemens SIMATIC IOT20
 <p align="center">
   <img src="docs/images/Process2.jpg" />
 </p>
-
+-->
 ---
 
 ## ✅ Overview of the Process
 
-1. **Register the IOT2050 Device:**  
-   - Add the Siemens IOT2050 to your account on an IoT server within the FidesInnova platform.  
-
-2. **Generate and Submit a Commitment:**  
+<!-- 1. **Register the IOT2050 Device:**  
+   - Add the Siemens IOT2050 to your account on an IoT server within the Fides Innova platform.  
+-->
+1. **Writing the C++ Program:**
+   - Create a `program.cpp` as a sample code.
+     
+3. **Generate and Submit a Commitment:**  
    - Create a cryptographic commitment for the IOT2050 program.  
-   - Submit the generated commitment to the FidesInnova network.  
+   - Submit the generated commitment to the Fides Innova network.  
 
-3. **Generate and Submit a Proof:**  
+4. **Generate and Submit a Proof:**  
    - Generate a zero-knowledge proof (ZKP) for the IOT2050 program.  
-   - Submit the proof to the FidesInnova network for verification.  
+   - Submit the proof to the Fides Innova network for verification.  
 
-4. **Browse the Commitment and Verify the Proof:**  
+5. **Browse the Commitment and Verify the Proof:**  
    - Generate a zero-knowledge proof (ZKP) for the IOT2050 program.  
-   - Submit the proof to the FidesInnova network for verification.  
+   - Submit the proof to the Fides Innova network for verification.  
 
 ---
-
+<!--
 # 🚩 Step 1: IOT2050 Registration
 
 In this step, you’ll add the IOT2050 device to your user account on an IoT server.  
@@ -60,9 +63,31 @@ In this step, you’ll add the IOT2050 device to your user account on an IoT ser
    cd zkiot-arm-siemens-iot2050-c
    ```
 5. **Install the Device:**
-  - Execute the `wizardry.sh` script and select `1`, then follow the instructions to register your IOT2050 on Fidesinnova platform.
+  - Execute the `wizardry.sh` script and select `1`, then follow the instructions to register your IOT2050 on the Fides Innova platform.
 ```
 ./wizardry.sh
+```
+-->
+
+# 🚩 Step 1: Writing the C++ Program
+
+In this step, you’ll write a program containing upcodes like: `ADD`, 'SUB', `MUL`, `UDIV`, and/or `SDIV`.  
+
+To simplify this step, a sample `program.cpp` was provided.
+```
+#include "lib/fidesinnova.h"
+
+int main() {
+    asm volatile (
+        "mov x18, #25\n"
+        "mov x17, #159\n"
+        "add x17, x17, x18\n"
+        "add x17, x17, x18\n"
+        "add x17, x17, x18\n"
+        "add x17, x17, x18\n"
+    );
+    return 0;
+}
 ```
 
 # 🚩 Step 2: Commitment Generation
@@ -72,7 +97,7 @@ Compile your code based on your operating system.
 g++ -std=c++17 commitmentGenerator.cpp lib/polynomial.cpp -o commitmentGenerator -lstdc++
 ```
 
-In this step, you should generate a commitment for your program on IOT2050 and submit it on the Fidesinnova public network.
+In this step, you should generate a commitment for your program on IOT2050 and submit it on the Fides Innova public network.
 - Install necessary libraries on IOT2050
 ```
 sudo apt update && sudo apt install -y g++ libmosquitto-dev libmosquittopp-dev
@@ -101,19 +126,20 @@ Update the following parameter:
 "deviceModel": Model of the device (e.g., 'zk-MultiSensor', 'E-card')
 "manufacturer": Manufacturer of the device (e.g., 'Simense', 'Tesla')
 "softwareVersion": Software/firmware version of the device (e.g., '1.0.0')
+"code_block": Line range in the assembly where the critical operations occur.
 ```
 
 - The project root path has a sample program, `program.cpp`. The commitment will be generated for this program.
-- Execute the wizardry.sh script to generate a commitment.
+- Execute the wizardry.sh script and choose option _1_ to generate a commitment.
 ```
 ./wizardry.sh
 ```
-You can find the commitment at `data/program_commitment.json`
-- Submit the commitment on Fidesinnova blockchain. To learn about this step, please follow: [A.8. Submit the commitment on blockchain](https://github.com/FidesInnova/zkiot-usage/blob/main/README_Program.md#a8-submit-the-commitment-on-blockchain)
+You can find the commitment at `program_commitment.json`
+- Submit the commitment on Fides Innova blockchain. To learn about this step, please follow: [A.8. Submit the commitment on blockchain](https://github.com/FidesInnova/zkiot-usage/blob/main/README_Program.md#a8-submit-the-commitment-on-blockchain)
   
 # 🚩 Step 3: Proof Generation
-In this step, you should generate proofs by running the program on IOT2050 and submit it on the Fidesinnova public network.
-- For this demo, you can use `wizardry.sh` script and choose option 3 to execute the program.
+In this step, you should generate proofs by running the program on IOT2050 and submit the Proof to the Fides Innova public network.
+- For this demo, you can use `wizardry.sh` script and choose option _2_ to execute the program.
 ```
 ./wizardry.sh
 ```
@@ -121,13 +147,20 @@ In this step, you should generate proofs by running the program on IOT2050 and s
 # 🌐 Step 4: Browsing the Commitment and Verifying the Proofs
 To verify the execution of the program, you have two options:
 #### **Local Verification**: Use the locally available `verifier` tool.
+- For this demo, you can use `wizardry.sh` script and choose option _3_ to verify the proof.
+```
+./wizardry.sh
+```
+or
 ```
 ./verifier
 ```
-#### **Fidesinnova Blockchain Explorer Verification**: Submit your proof on the blockchain, then use the Fidesinnova Blockchain Explorer to verify the submitted `proof.json`.
 
-1. **Access the FidesInnova Explorer:**  
-   - Open the [**FidesInnova Blockchain Explorer**](https://explorer.fidesinnova.io) to view your submitted commitments and proofs.  
+<!--
+#### **Fides Innova Blockchain Explorer Verification**: Submit your proof on the blockchain, then use the Fides Innova Blockchain Explorer to verify the submitted `proof.json`.
+
+1. **Access the Fides Innova Explorer:**  
+   - Open the [**Fides Innova Blockchain Explorer**](https://explorer.fidesinnova.io) to view your submitted commitments and proofs.  
 <p align="center">
   <img src="docs/images/1.png" />
 </p>
@@ -150,3 +183,4 @@ At the transaction location, click the ` ⋮ ` and select "Verify Proof" from th
 <p align="center">
   <img src="docs/images/3.png" />
 </p>
+-->

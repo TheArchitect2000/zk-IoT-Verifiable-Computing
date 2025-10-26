@@ -37,13 +37,13 @@ Open `program.s` and locate the first supported instruction line (like `mul` or 
 ### Step 1.3: Update the `device_config.json` File
 ```
 {
-  "class": 1,                       // 32-bit Integer
-  "deviceType": "Sensor",           // String
-  "deviceIdType": "MAC",            // String
-  "deviceModel": "Siemense 2.5",    // String
-  "manufacturer": "My Company",     // String
-  "softwareVersion": "1.2",         // String
-  "code_block": [14, 15]            // 64-bit Array
+  "class": 1,
+  "deviceType": "Sensor",
+  "deviceIdType": "MAC",
+  "deviceModel": "Siemense 2.5",
+  "manufacturer": "My Company",
+  "softwareVersion": "1.2",
+  "code_block": [14, 15]
 }
 ```
 * **`commitmentId`**: Unique identifier for the commitment.
