@@ -1,0 +1,3 @@
+[submodule "assistedTrigger-ARM/assistedTrigger-ARM/Ver_2/mcl"]
+	path = assistedTrigger-ARM/assistedTrigger-ARM/Ver_2/mcl
+	url = https://github.com/herumi/mcl.git
