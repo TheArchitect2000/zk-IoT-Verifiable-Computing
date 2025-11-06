@@ -63,7 +63,10 @@ int main() {
     return 0;
 }
 ```
-### 2) Build the sample binary (keep it simple to trace)
+### 2) Build the sample assembly and binary (keep it simple to trace)
+```bash
+g++ -S -O0 -g -fno-inline -fno-builtin -fno-omit-frame-pointer sample.cpp -o sample.s
+```
 ```bash
 g++ -O0 -g -fno-pie -no-pie sample.cpp -o sample
 ```
