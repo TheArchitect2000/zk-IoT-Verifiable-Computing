@@ -16,12 +16,12 @@
 // To compile: g++ -std=c++17 proofGenerator.cpp lib/polynomial.cpp -o proofGenerator -lstdc++
 // To run: ./proofGenerator ./program_AND
 
-#include "../lib/fidesinnova.h"
+#include "lib/fidesinnova.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
-#include "../lib/json.hpp"
+#include "lib/json.hpp"
 #include <sstream>
 #include <unordered_map>
 using ordered_json = nlohmann::ordered_json;

@@ -1,0 +1,5 @@
+version:1
+source:asm
+code_size:37675
+code_sha:b187066b9c917b355f8db5ebaee95416f2add4c56b54dec591b34a8a28df6a8a
+code_kzg_base:8a60f258ddebda2a392381d4e8a0b7efe11a1490da55cf9491c3cdf477bd3203
