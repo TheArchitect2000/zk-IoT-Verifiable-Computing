@@ -1,5 +1,5 @@
-version:1
-source:asm
-code_size:37675
-code_sha:b187066b9c917b355f8db5ebaee95416f2add4c56b54dec591b34a8a28df6a8a
-code_kzg_base:8a60f258ddebda2a392381d4e8a0b7efe11a1490da55cf9491c3cdf477bd3203
+{
+  "code_sha":"bf471e22d5aadbf3ace914f3b5a595f8c3d5210a601eff5337c3dff24da7a416",
+  "salt":"47e1914d57bb912cf1c684ed0dda1a8e",
+  "session_hash":"5869db897f6698b41c7349913461540d177de7e2d1757436ac06f4e39e6dcd13"
+}
